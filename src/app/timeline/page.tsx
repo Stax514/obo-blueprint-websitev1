@@ -1,4 +1,5 @@
 import SectionLayout from "@/components/SectionLayout";
+import Link from "next/link";
 
 const grades = [
   {
@@ -8,7 +9,7 @@ const grades = [
     accent: "text-[#C4841A]",
     items: [
       { time: "Fall", task: "Start strong academically — freshman year GPA matters more than people think and it's the easiest time to build momentum." },
-      { time: "Year-round", task: "Join 1–2 clubs or activities that genuinely interest you. This is the move: join early so you can move up into leadership positions by junior or senior year. That's the play." },
+      { time: "Year-round", task: "Join 1–2 clubs or activities that genuinely interest you. This is the move: join early so you can move up into leadership positions by junior or senior year. That's the play. See Extracurriculars → for how to pick activities that build your argument." },
       { time: "Year-round", task: "Build a relationship with at least one teacher — not for the rec letter yet, just because mentors matter." },
       { time: "Spring", task: "Think about summer now. Summer programs, jobs, volunteer work — the good ones require applications months in advance." },
       { time: "Year-round", task: "Read widely. Your vocabulary and writing will matter enormously in three years." },
@@ -21,7 +22,7 @@ const grades = [
     accent: "text-[#C45B3D]",
     items: [
       { time: "Fall", task: "Take the PSAT — use it as practice, not pressure. Score data tells you where to focus." },
-      { time: "Fall", task: "Start taking on more responsibility in your activities. Don't just show up — take initiative. Admissions officers give you a point for leadership and skip the rest." },
+      { time: "Fall", task: "Start taking on more responsibility in your activities. Don't just show up — take initiative. Admissions officers give you a point for leadership and skip the rest. Your goal by senior year: every major activity connects back to one clear argument about who you are and what you want to do." },
       { time: "Spring", task: "Start researching colleges loosely — what types interest you? What do you want to study?" },
       { time: "Summer", task: "Apply for summer programs: NSBE, QuestBridge, local internships, research programs. These build your story AND your resume." },
       { time: "Year-round", task: "Take the hardest classes you can handle — AP, IB, or dual enrollment. Course rigor is part of what admissions reads." },
@@ -38,7 +39,7 @@ const grades = [
       { time: "Winter", task: "Build your college list: reach, target, and likely schools (10–15 schools). Don't skip likely schools. Don't apply to only reaches." },
       { time: "Spring", task: "Visit campuses — in-person if possible, virtual if not. The visit changes everything." },
       { time: "Spring", task: "Ask teachers for recommendation letters before summer — give them the whole summer. A strong rec can change a decision." },
-      { time: "Summer", task: "Start brainstorming your Common App essay topic. Your story, your specific experience, the thing no one else is writing about." },
+      { time: "Summer", task: "Start brainstorming your Common App essay topic. The core question: what problem do you want to solve in the world, and what in your specific life makes you the right person to solve it? Your essay is an argument — start building it now. See Applications → for the full breakdown." },
       { time: "Summer", task: "Apply for scholarships — many open in the summer before senior year. Start a spreadsheet now." },
     ],
   },
@@ -101,6 +102,23 @@ export default function TimelinePage() {
         <p className="text-[#6B6B6B] text-lg leading-relaxed">
           Read through the whole timeline right now — even if you&apos;re a freshman. Knowing what&apos;s ahead is half the battle.
         </p>
+      </div>
+
+      {/* Cross-links */}
+      <div className="flex flex-wrap gap-3 mb-12">
+        {[
+          { label: "How to pick the right extracurriculars →", href: "/extracurriculars" },
+          { label: "How to write your application essay →", href: "/applications" },
+          { label: "FAFSA and scholarship deadlines →", href: "/financial-aid" },
+        ].map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className="inline-flex items-center px-4 py-2 bg-white border border-[#1B4332] text-[#1B4332] text-sm font-medium rounded-md hover:bg-[#1B4332] hover:text-white transition-colors duration-150 cursor-pointer"
+          >
+            {link.label}
+          </Link>
+        ))}
       </div>
 
       {/* Grade timelines */}

@@ -1,5 +1,48 @@
 import SectionLayout from "@/components/SectionLayout";
-import { AlertCircle, Lightbulb } from "lucide-react";
+import { AlertCircle, Lightbulb, ArrowRight } from "lucide-react";
+
+const sampleEssayBreakdown = {
+  prompt: "Some students have a background, identity, interest, or talent so meaningful their application would be incomplete without it.",
+  student: {
+    name: "Maya — wants to be a public health doctor in South LA",
+    thesis: "I am the only doctor who grew up watching my grandmother get dismissed at the free clinic, who started a health literacy program at my church because of it, and who already knows what it means to fight for care in a community that the system forgot.",
+  },
+  steps: [
+    {
+      label: "Start with the problem, not yourself",
+      notes: [
+        "Open on a specific scene — not 'I want to be a doctor.' Open on your grandmother sitting in a waiting room for 3 hours.",
+        "The reader should feel the problem before they meet you.",
+        "The narrower the scene, the stronger the hook.",
+      ],
+    },
+    {
+      label: "Show what you're already doing about it",
+      notes: [
+        "Health literacy workshops at church → you organized them, built the curriculum, brought in speakers",
+        "Volunteering at the free clinic → you see the gap from both sides now",
+        "AP Biology + community college anatomy → not just credentials, proof you're serious",
+        "These aren't résumé bullets — they're evidence that you don't wait for permission to start.",
+      ],
+    },
+    {
+      label: "Make the connection explicit",
+      notes: [
+        "'I'm not going to med school to become a doctor. I'm going to become better at something I'm already doing.'",
+        "The degree is an amplifier — you show that the work exists whether or not you get in.",
+        "This is the shift that separates strong essays from weak ones.",
+      ],
+    },
+    {
+      label: "End on the future — but ground it in what's real",
+      notes: [
+        "Not: 'I hope to one day help communities like mine.'",
+        "Instead: 'South LA already has a doctor fighting for it. I just need the training to do it at scale.'",
+        "Ambition is more believable when it's attached to something you've already proven.",
+      ],
+    },
+  ],
+};
 
 const essayTips = [
   {
@@ -134,6 +177,96 @@ export default function ApplicationsPage() {
               <p className="text-[#6B6B6B] text-sm leading-relaxed">{comp.desc}</p>
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* Make Your Case */}
+      <div className="mb-20">
+        <p className="text-[#1A1A2E] text-xs font-semibold uppercase tracking-widest mb-4">The core insight</p>
+        <h2
+          className="text-3xl sm:text-4xl font-bold text-[#0D0D0D] mb-6"
+          style={{ fontFamily: "'Libre Bodoni', serif" }}
+        >
+          Your application is an argument.<br />
+          <span className="italic">You are trying to win it.</span>
+        </h2>
+        <div className="max-w-3xl space-y-4 mb-12">
+          <p className="text-[#6B6B6B] text-lg leading-relaxed">
+            The students who get into elite schools don&apos;t just describe themselves — they make a case. The case is this: <strong className="text-[#0D0D0D]">I am the only person like me who wants to solve this specific problem, and I&apos;m already doing it.</strong>
+          </p>
+          <p className="text-[#6B6B6B] text-lg leading-relaxed">
+            There are thousands of applicants who want to be doctors, lawyers, engineers, or finance people. The ones who get in aren&apos;t just qualified — they&apos;re specific. They show admissions officers exactly how their background, their community, their story makes them the right person to do the work they&apos;re describing.
+          </p>
+          <p className="text-[#6B6B6B] text-lg leading-relaxed">
+            And critically: they&apos;re already doing it. Not &ldquo;I hope to one day help my community.&rdquo; Instead — &ldquo;Here&apos;s what I&apos;m already building with the limited resources I have. Now imagine what I can do with your university&apos;s resources behind me.&rdquo;
+          </p>
+        </div>
+
+        {/* Three-part framework */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
+          {[
+            {
+              num: "01",
+              title: "What problem and why only you",
+              body: "What do you want to do in the world? And what in your specific life — your neighborhood, your family, your story — makes you the right person to do it? Not just motivated. Uniquely positioned.",
+            },
+            {
+              num: "02",
+              title: "What you're already doing now",
+              body: "With the resources you have today — which may be limited — you're already working on this. Show that. The degree doesn't create the work. It amplifies work that already exists.",
+            },
+            {
+              num: "03",
+              title: "How this school makes it bigger",
+              body: "Be specific about what this school gives you that you can't get anywhere else. Research labs, specific professors, programs, networks. Generic 'Why Us' essays get ignored. Specific ones don't.",
+            },
+          ].map((item) => (
+            <div key={item.num} className="bg-[#F0F0F8] border border-[#1A1A2E]/20 rounded-xl p-6">
+              <span className="text-4xl font-bold text-[#1A1A2E]/10 block mb-3" style={{ fontFamily: "'Libre Bodoni', serif" }}>{item.num}</span>
+              <h3 className="font-bold text-[#0D0D0D] mb-2 text-base" style={{ fontFamily: "'Libre Bodoni', serif" }}>{item.title}</h3>
+              <p className="text-[#6B6B6B] text-sm leading-relaxed">{item.body}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Sample breakdown */}
+        <div className="bg-[#0D0D0D] rounded-2xl p-8 md:p-10 mb-20">
+          <p className="text-[#1A1A2E] bg-[#F0F0F8] text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6">Example breakdown</p>
+          <div className="mb-6">
+            <p className="text-[#9CA3AF] text-xs uppercase tracking-widest mb-2">Prompt</p>
+            <p className="text-[#FAFAF7] text-sm leading-relaxed italic">&ldquo;{sampleEssayBreakdown.prompt}&rdquo;</p>
+          </div>
+          <div className="bg-[#111111] rounded-xl p-5 mb-8">
+            <p className="text-[#9CA3AF] text-xs uppercase tracking-widest mb-2">Student + thesis</p>
+            <p className="text-[#F4A825] font-semibold text-sm" style={{ fontFamily: "'Libre Bodoni', serif" }}>{sampleEssayBreakdown.student.name}</p>
+            <p className="text-[#FAFAF7] text-sm leading-relaxed mt-2 italic">&ldquo;{sampleEssayBreakdown.student.thesis}&rdquo;</p>
+          </div>
+          <div className="space-y-6">
+            {sampleEssayBreakdown.steps.map((step, i) => (
+              <div key={i} className="border-b border-[#2D2D2D] pb-6 last:border-b-0 last:pb-0">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-6 h-6 rounded-full bg-[#1A1A2E] flex items-center justify-center text-xs font-bold text-white flex-shrink-0">{i + 1}</div>
+                  <h4 className="text-[#FAFAF7] font-semibold text-sm" style={{ fontFamily: "'Libre Bodoni', serif" }}>{step.label}</h4>
+                </div>
+                <ul className="space-y-2 pl-9">
+                  {step.notes.map((note, j) => (
+                    <li key={j} className="flex gap-2 text-sm text-[#9CA3AF] leading-relaxed">
+                      <ArrowRight size={12} className="text-[#F4A825] flex-shrink-0 mt-1" />
+                      <span>{note}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 bg-[#1A1A2E] rounded-xl p-5">
+            <p className="text-[#9CA3AF] text-xs uppercase tracking-widest mb-2">The pattern works for any field</p>
+            <div className="flex flex-wrap gap-2">
+              {["Public health → community health worker now", "Finance → budgeting program for family members now", "Law → school policy advocacy now", "Engineering → building projects in your community now", "Education → tutoring, mentoring, teaching now"].map((ex) => (
+                <span key={ex} className="text-xs bg-[#0D0D0D] text-[#9CA3AF] border border-[#2D2D2D] px-3 py-1.5 rounded-md">{ex}</span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 

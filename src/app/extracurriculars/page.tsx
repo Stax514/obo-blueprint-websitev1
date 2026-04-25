@@ -84,6 +84,48 @@ export default function ExtracurricularsPage() {
         </p>
       </div>
 
+      {/* Build your thesis */}
+      <div className="mb-20 bg-[#0D0D0D] rounded-2xl p-8 md:p-12">
+        <p className="text-[#6D28D9] text-xs font-semibold uppercase tracking-widest mb-4">Pick activities with purpose</p>
+        <h2
+          className="text-2xl sm:text-3xl font-bold text-[#FAFAF7] mb-4"
+          style={{ fontFamily: "'Libre Bodoni', serif" }}
+        >
+          Build a thesis. Then build activities that prove it.
+        </h2>
+        <p className="text-[#9CA3AF] leading-relaxed mb-8 max-w-2xl">
+          The strongest applicants don&apos;t have a random list of impressive things — they have a coherent story. Every major activity points back to one central argument: <span className="text-[#FAFAF7] italic">I am the only person like me who wants to solve this problem, and I&apos;m already working on it.</span>
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          {[
+            {
+              question: "What problem in the world do you want to solve?",
+              examples: ["Health disparities in low-income neighborhoods", "Mass incarceration and criminal justice reform", "Climate change in urban communities", "Financial illiteracy in Black communities"],
+            },
+            {
+              question: "What activities prove you're already on it?",
+              examples: ["Health: volunteer at free clinic, run workshops, shadow doctors", "Justice: mock trial, policy advocacy, legal aid volunteer work", "Climate: environmental club leadership, community garden, local advocacy", "Finance: budgeting workshops for family, investing club, FBLA leadership"],
+            },
+          ].map((item) => (
+            <div key={item.question} className="bg-[#111111] rounded-xl p-5">
+              <p className="text-[#F4A825] text-sm font-semibold mb-3" style={{ fontFamily: "'Libre Bodoni', serif" }}>{item.question}</p>
+              <ul className="space-y-2">
+                {item.examples.map((ex) => (
+                  <li key={ex} className="flex gap-2 text-sm text-[#9CA3AF]">
+                    <span className="text-[#6D28D9] flex-shrink-0">→</span>
+                    {ex}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <div className="bg-[#1A1A2E] rounded-xl p-5">
+          <p className="text-[#FAFAF7] text-sm font-semibold mb-2" style={{ fontFamily: "'Libre Bodoni', serif" }}>The test for every activity you consider joining</p>
+          <p className="text-[#9CA3AF] text-sm leading-relaxed">Does this activity add evidence to my argument — or is it just something that looks good? If you can&apos;t connect it to your thesis, it&apos;s not worth your time. Go deeper in fewer things. More evidence for one argument beats scattered proof of nothing.</p>
+        </div>
+      </div>
+
       {/* Activity tiers */}
       <div className="mb-20">
         <p className="text-[#6D28D9] text-xs font-semibold uppercase tracking-widest mb-4">How they evaluate it</p>
