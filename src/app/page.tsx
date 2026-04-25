@@ -217,17 +217,17 @@ export default function HomePage() {
               style={{ fontFamily: "'Libre Bodoni', serif" }}
             >
               Have questions?{" "}
-              <span className="italic">We answer every email.</span>
+              <span className="italic">We&apos;re here.</span>
             </h2>
             <p className="text-[#0D0D0D]/70 max-w-xl">
-              Reach out — whether it&apos;s your essay, a school you&apos;re considering, or where to even start.
+              Whether it&apos;s your essay, a school you&apos;re considering, financial aid, or where to even start — reach out.
             </p>
           </div>
           <Link
-            href="mailto:tsadiku514@gmail.com"
+            href="/contact"
             className="flex-shrink-0 inline-flex items-center gap-2 px-8 py-4 bg-[#0D0D0D] text-[#FAFAF7] font-semibold rounded-md hover:bg-[#1B4332] transition-colors duration-150 cursor-pointer"
           >
-            Email us
+            Get help
             <ArrowRight size={18} />
           </Link>
         </div>

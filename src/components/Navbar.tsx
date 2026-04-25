@@ -62,7 +62,7 @@ export default function Navbar() {
           {/* CTA + mobile toggle */}
           <div className="flex items-center gap-3">
             <Link
-              href="mailto:tsadiku514@gmail.com"
+              href="/contact"
               className="hidden sm:inline-flex items-center px-4 py-2 bg-[#0D0D0D] text-[#FAFAF7] text-sm font-medium rounded-md hover:bg-[#F4A825] hover:text-[#0D0D0D] transition-colors duration-150 cursor-pointer"
             >
               Get Help
@@ -98,7 +98,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="mailto:tsadiku514@gmail.com"
+              href="/contact"
               onClick={() => setOpen(false)}
               className="block mt-2 px-3 py-2.5 bg-[#0D0D0D] text-[#FAFAF7] text-sm font-medium rounded-md text-center cursor-pointer"
             >
