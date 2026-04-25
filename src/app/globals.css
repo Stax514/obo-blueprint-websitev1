@@ -1,26 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: #FAFAF7;
+  --color-ink: #0D0D0D;
+  --color-ink-muted: #6B6B6B;
+  --color-gold: #F4A825;
+  --color-gold-dark: #C4841A;
+  --color-terra: #C45B3D;
+  --color-terra-light: #F0D5CE;
+  --color-forest: #1B4332;
+  --color-forest-light: #D1FAE5;
+  --color-navy: #1A1A2E;
+  --color-navy-light: #E0E7FF;
+  --color-violet: #6D28D9;
+  --color-violet-light: #EDE9FE;
+  --color-teal: #0F766E;
+  --color-teal-light: #CCFBF1;
+  --color-border: #E5E5E0;
+  --font-serif: 'Libre Bodoni', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FAFAF7;
+  color: #0D0D0D;
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Libre Bodoni', Georgia, serif;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.section-card {
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+.section-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+}
+
+.underline-gold {
+  text-decoration-color: #F4A825;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
 }
