@@ -22,7 +22,7 @@ export default function ContactPage() {
         </h1>
 
         <p className="text-[#6B6B6B] text-lg leading-relaxed mb-12">
-          Whether it&apos;s your college list, an essay you&apos;re stuck on, financial aid questions, or just figuring out where to start — send us an email. We read everything.
+          Whether it&apos;s your college list, an essay you&apos;re stuck on, financial aid questions, or just figuring out where to start — send us an email. We&apos;re both busy but we&apos;ll do our best to help.
         </p>
 
         <div className="bg-[#0D0D0D] rounded-2xl p-8 md:p-10 mb-10">
