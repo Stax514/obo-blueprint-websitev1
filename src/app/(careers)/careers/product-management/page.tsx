@@ -90,7 +90,7 @@ export default function ProductManagementPage() {
       {/* Hero */}
       <section className="bg-[#0D0D0D]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-          <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-[#6B7280] hover:text-[#F4A825] transition-colors mb-6 cursor-pointer">
+          <Link href="/careers" className="inline-flex items-center gap-1.5 text-sm text-[#6B7280] hover:text-[#F4A825] transition-colors mb-6 cursor-pointer">
             ← All careers
           </Link>
           <div className="inline-flex items-center gap-2 bg-[#FDF8EC] text-[#C4841A] text-xs font-semibold px-3 py-1.5 rounded-full mb-4">

@@ -21,6 +21,7 @@ export default function CareerNavbar() {
   const [open, setOpen] = useState(false);
 
   const isHome = pathname === "/";
+  const isCareersHub = pathname === "/careers";
   const isPM = pmPaths.some((p) => pathname === p || pathname.startsWith(p + "/"));
   const navLinks = isPM ? pmLinks : [];
 
@@ -38,6 +39,11 @@ export default function CareerNavbar() {
                 Blueprint
               </span>
             </Link>
+            {isCareersHub && (
+              <span className="hidden sm:inline-flex items-center gap-1 text-xs font-semibold text-[#6B6B6B] bg-[#F5F5F0] px-2 py-0.5 rounded-full border border-[#E5E5E0]">
+                Career Tracks
+              </span>
+            )}
             {isPM && (
               <span className="hidden sm:inline-flex items-center gap-1 text-xs font-semibold text-[#C4841A] bg-[#FDF8EC] px-2 py-0.5 rounded-full border border-[#F4A825]/30">
                 Product Management
@@ -68,10 +74,17 @@ export default function CareerNavbar() {
           <div className="flex items-center gap-3">
             {isHome ? (
               <Link
-                href="/careers/product-management"
+                href="/careers"
                 className="hidden sm:inline-flex items-center px-4 py-2 bg-[#F4A825] text-[#0D0D0D] text-sm font-semibold rounded-md hover:bg-[#C4841A] transition-colors duration-150 cursor-pointer"
               >
                 Get started
+              </Link>
+            ) : isCareersHub ? (
+              <Link
+                href="/careers/product-management"
+                className="hidden sm:inline-flex items-center px-4 py-2 bg-[#F4A825] text-[#0D0D0D] text-sm font-semibold rounded-md hover:bg-[#C4841A] transition-colors duration-150 cursor-pointer"
+              >
+                Start with PM
               </Link>
             ) : (
               <Link

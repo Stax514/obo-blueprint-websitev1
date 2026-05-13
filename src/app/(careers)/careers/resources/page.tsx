@@ -168,9 +168,9 @@ export default function ResourcesPage() {
   return (
     <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Back */}
-      <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-[#6B6B6B] hover:text-[#F4A825] transition-colors mb-8">
+      <Link href="/careers" className="inline-flex items-center gap-1.5 text-sm text-[#6B6B6B] hover:text-[#F4A825] transition-colors mb-8">
         <ArrowLeft size={14} />
-        Back to home
+        Back to careers
       </Link>
 
       {/* Header */}
