@@ -31,7 +31,7 @@ export default function HsNavbar() {
             onClick={() => setOpen(false)}
           >
             <div className="w-8 h-8 bg-[#0D0D0D] rounded-sm flex items-center justify-center">
-              <span className="text-[#F4A825] font-bold text-sm" style={{ fontFamily: "'Libre Bodoni', serif" }}>O</span>
+              <span className="text-[#F4A825] font-bold text-base" style={{ fontFamily: "'Libre Bodoni', serif" }}>O</span>
             </div>
             <span
               className="font-bold text-[#0D0D0D] text-lg tracking-tight"

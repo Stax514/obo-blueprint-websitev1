@@ -9,7 +9,7 @@ export default function CareerFooter() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 bg-[#F4A825] rounded-sm flex items-center justify-center">
-                <span className="text-[#0D0D0D] font-bold text-sm" style={{ fontFamily: "'Libre Bodoni', serif" }}>O</span>
+                <span className="text-[#0D0D0D] font-bold text-base" style={{ fontFamily: "'Libre Bodoni', serif" }}>O</span>
               </div>
               <span className="font-bold text-lg" style={{ fontFamily: "'Libre Bodoni', serif" }}>Blueprint</span>
             </div>
