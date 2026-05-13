@@ -193,23 +193,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer note */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <div className="bg-[#0D0D0D] rounded-xl p-8 text-[#FAFAF7]">
-          <h2
-            className="text-lg font-bold mb-3"
-            style={{ fontFamily: "'Libre Bodoni', serif" }}
-          >
-            Built by Tsadiku and Adiyah Obolu.
-          </h2>
-          <p className="text-[#9CA3AF] leading-relaxed text-sm">
-            We grew up in Sacramento with real advantages — educated parents who knew how the systems worked. Most of our classmates didn&apos;t have the same access. This site is our attempt to close that gap. Everything here is honest, tactical, and free.
-          </p>
-          <p className="text-[#F4A825] text-sm font-medium mt-3 italic" style={{ fontFamily: "'Libre Bodoni', serif" }}>
-            &ldquo;Your story is your strategy.&rdquo;
-          </p>
-        </div>
-      </section>
     </>
   );
 }
