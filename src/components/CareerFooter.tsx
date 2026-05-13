@@ -9,12 +9,12 @@ export default function CareerFooter() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 bg-[#F4A825] rounded-sm flex items-center justify-center">
-                <span className="text-[#0D0D0D] font-bold text-sm" style={{ fontFamily: "'Libre Bodoni', serif" }}>B</span>
+                <span className="text-[#0D0D0D] font-bold text-sm" style={{ fontFamily: "'Libre Bodoni', serif" }}>O</span>
               </div>
-              <span className="font-bold text-lg" style={{ fontFamily: "'Libre Bodoni', serif" }}>Blueprint</span>
+              <span className="font-bold text-lg" style={{ fontFamily: "'Libre Bodoni', serif" }}>Obolu Blueprint</span>
             </div>
             <p className="text-[#9CA3AF] text-sm leading-relaxed max-w-xs">
-              Free guides for breaking into the career you want. No login. No paywall.
+              The complete guide from high school applications to your first career offer. Three stages. Written by Tsadiku and Adiyah Obolu. Free, no login, no paywall.
             </p>
           </div>
 
