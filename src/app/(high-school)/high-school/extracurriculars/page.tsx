@@ -1,4 +1,4 @@
-import SectionLayout from "@/components/SectionLayout";
+import HsSectionLayout from "@/components/HsSectionLayout";
 
 const tiers = [
   {
@@ -57,7 +57,7 @@ const activityWritingTips = [
 
 export default function ExtracurricularsPage() {
   return (
-    <SectionLayout
+    <HsSectionLayout
       eyebrow="Section 05 — Extracurriculars"
       title={`Show them who\nyou are.`}
       subtitle="Leadership over membership. Depth over volume. The argument you're making is: look at everything I'm already doing with limited resources. Imagine what I'll do at your university."
@@ -65,8 +65,8 @@ export default function ExtracurricularsPage() {
       accentColor="#6D28D9"
       accentBg="bg-[#6D28D9]"
       accentText="text-white"
-      prevSection={{ href: "/applications", label: "Applications" }}
-      nextSection={{ href: "/financial-aid", label: "Financial Aid" }}
+      prevSection={{ href: "/high-school/applications", label: "Applications" }}
+      nextSection={{ href: "/high-school/financial-aid", label: "Financial Aid" }}
     >
       {/* Intro */}
       <div className="max-w-3xl mb-20">
@@ -247,6 +247,6 @@ export default function ExtracurricularsPage() {
           Also: don&apos;t underestimate what you already do. A part-time job where you took on real responsibility, helping raise younger siblings, a skill you&apos;ve been building, a project you care about — these are real activities. Write them honestly and let the story speak. You have more to offer than you think.
         </p>
       </div>
-    </SectionLayout>
+    </HsSectionLayout>
   );
 }

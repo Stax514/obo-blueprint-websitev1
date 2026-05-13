@@ -4,7 +4,7 @@ import { ArrowRight, BookOpen, MapPin, Calendar, FileText, Star, DollarSign } fr
 const sections = [
   {
     num: "01",
-    href: "/why-college",
+    href: "/high-school/why-college",
     title: "Why College?",
     tagline: "The real reasons it matters — not the ones in brochures.",
     description: "Beyond the diploma: earning power, networks, experiences, and what it means to be first.",
@@ -14,7 +14,7 @@ const sections = [
   },
   {
     num: "02",
-    href: "/which-college",
+    href: "/high-school/which-college",
     title: "Which College?",
     tagline: "HBCUs, PWIs, state schools, community college — broken down.",
     description: "No one-size answer. Learn how to find the school that fits your story, not your neighbor's.",
@@ -24,7 +24,7 @@ const sections = [
   },
   {
     num: "03",
-    href: "/timeline",
+    href: "/high-school/timeline",
     title: "Timeline",
     tagline: "Month by month. Grade by grade. No surprises.",
     description: "A clear roadmap from 9th grade to decision day so you're never behind again.",
@@ -34,7 +34,7 @@ const sections = [
   },
   {
     num: "04",
-    href: "/applications",
+    href: "/high-school/applications",
     title: "Applications",
     tagline: "The essay, the list, the recs. Done right.",
     description: "How to write an essay that sounds like you — not a pamphlet. Plus everything else admissions wants.",
@@ -44,7 +44,7 @@ const sections = [
   },
   {
     num: "05",
-    href: "/extracurriculars",
+    href: "/high-school/extracurriculars",
     title: "Extracurriculars",
     tagline: "Quality over quantity. Leadership over membership.",
     description: "Build an activities list that tells a story — and find opportunities starting today.",
@@ -54,7 +54,7 @@ const sections = [
   },
   {
     num: "06",
-    href: "/financial-aid",
+    href: "/high-school/financial-aid",
     title: "Financial Aid",
     tagline: "Don't let money be the reason you don't go.",
     description: "FAFSA, CSS Profile, scholarships built for you — and how to negotiate your award.",
@@ -64,7 +64,7 @@ const sections = [
   },
 ];
 
-export default function HomePage() {
+export default function HighSchoolHomePage() {
   return (
     <>
       {/* Hero */}
@@ -92,14 +92,14 @@ export default function HomePage() {
 
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
-              href="/why-college"
+              href="/high-school/why-college"
               className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-[#0D0D0D] text-[#FAFAF7] font-semibold rounded-md hover:bg-[#F4A825] hover:text-[#0D0D0D] transition-colors duration-150 cursor-pointer"
             >
               Start here
               <ArrowRight size={18} />
             </Link>
             <Link
-              href="/timeline"
+              href="/high-school/timeline"
               className="inline-flex items-center justify-center gap-2 px-6 py-4 border border-[#E5E5E0] text-[#0D0D0D] font-medium rounded-md hover:border-[#0D0D0D] transition-colors duration-150 cursor-pointer"
             >
               See the timeline
@@ -224,7 +224,7 @@ export default function HomePage() {
             </p>
           </div>
           <Link
-            href="/contact"
+            href="/high-school/contact"
             className="flex-shrink-0 inline-flex items-center gap-2 px-8 py-4 bg-[#0D0D0D] text-[#FAFAF7] font-semibold rounded-md hover:bg-[#1B4332] transition-colors duration-150 cursor-pointer"
           >
             Get help

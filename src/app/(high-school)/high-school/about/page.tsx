@@ -81,7 +81,7 @@ export default function AboutPage() {
       <section className="bg-[#0D0D0D] py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
-            href="/"
+            href="/high-school"
             className="inline-flex items-center gap-2 text-sm font-medium text-[#6B7280] hover:text-[#9CA3AF] mb-10 transition-colors cursor-pointer"
           >
             ← Back to Blueprint
@@ -299,7 +299,7 @@ export default function AboutPage() {
             </p>
           </div>
           <Link
-            href="/why-college"
+            href="/high-school/why-college"
             className="flex-shrink-0 inline-flex items-center gap-2 px-8 py-4 bg-[#0D0D0D] text-[#FAFAF7] font-semibold rounded-md hover:bg-[#1B4332] transition-colors duration-150 cursor-pointer"
           >
             Start with Why College

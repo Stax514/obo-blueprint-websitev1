@@ -1,4 +1,4 @@
-import SectionLayout from "@/components/SectionLayout";
+import HsSectionLayout from "@/components/HsSectionLayout";
 import Link from "next/link";
 
 const grades = [
@@ -77,7 +77,7 @@ const grades = [
 
 export default function TimelinePage() {
   return (
-    <SectionLayout
+    <HsSectionLayout
       eyebrow="Section 03 — Timeline"
       title={`The roadmap.\nGrade by grade.`}
       subtitle="The students who stress the most senior year are the ones who didn't know what was coming. This page fixes that. Read the whole thing — even if you're in 9th grade."
@@ -85,8 +85,8 @@ export default function TimelinePage() {
       accentColor="#1B4332"
       accentBg="bg-[#1B4332]"
       accentText="text-white"
-      prevSection={{ href: "/which-college", label: "Which College?" }}
-      nextSection={{ href: "/applications", label: "Applications" }}
+      prevSection={{ href: "/high-school/which-college", label: "Which College?" }}
+      nextSection={{ href: "/high-school/applications", label: "Applications" }}
     >
       {/* Intro */}
       <div className="max-w-3xl mb-20">
@@ -107,9 +107,9 @@ export default function TimelinePage() {
       {/* Cross-links */}
       <div className="flex flex-wrap gap-3 mb-12">
         {[
-          { label: "How to pick the right extracurriculars →", href: "/extracurriculars" },
-          { label: "How to write your application essay →", href: "/applications" },
-          { label: "FAFSA and scholarship deadlines →", href: "/financial-aid" },
+          { label: "How to pick the right extracurriculars →", href: "/high-school/extracurriculars" },
+          { label: "How to write your application essay →", href: "/high-school/applications" },
+          { label: "FAFSA and scholarship deadlines →", href: "/high-school/financial-aid" },
         ].map((link) => (
           <Link
             key={link.href}
@@ -176,6 +176,6 @@ export default function TimelinePage() {
           ))}
         </div>
       </div>
-    </SectionLayout>
+    </HsSectionLayout>
   );
 }

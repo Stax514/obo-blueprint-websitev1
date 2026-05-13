@@ -1,4 +1,4 @@
-import SectionLayout from "@/components/SectionLayout";
+import HsSectionLayout from "@/components/HsSectionLayout";
 import { CheckCircle, XCircle } from "lucide-react";
 
 const schoolTypes = [
@@ -94,7 +94,7 @@ const fitFactors = [
 
 export default function WhichCollegePage() {
   return (
-    <SectionLayout
+    <HsSectionLayout
       eyebrow="Section 02 — Which College?"
       title={`Find the school\nthat fits you.`}
       subtitle="There isn't one school that's objectively better. What matters is which school is best for your major, your career, your goals. Don't chase prestige. Chase fit."
@@ -102,8 +102,8 @@ export default function WhichCollegePage() {
       accentColor="#C45B3D"
       accentBg="bg-[#C45B3D]"
       accentText="text-white"
-      prevSection={{ href: "/why-college", label: "Why College?" }}
-      nextSection={{ href: "/timeline", label: "Timeline" }}
+      prevSection={{ href: "/high-school/why-college", label: "Why College?" }}
+      nextSection={{ href: "/high-school/timeline", label: "Timeline" }}
     >
       {/* Intro */}
       <div className="max-w-3xl mb-20">
@@ -219,6 +219,6 @@ export default function WhichCollegePage() {
           If you can&apos;t visit in person, find students on Instagram or Reddit who actually go there and look at real day-in-the-life content. The official tour shows you the nicest buildings. The student content shows you the real school.
         </p>
       </div>
-    </SectionLayout>
+    </HsSectionLayout>
   );
 }

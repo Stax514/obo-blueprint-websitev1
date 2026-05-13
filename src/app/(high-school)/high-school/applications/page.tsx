@@ -1,4 +1,4 @@
-import SectionLayout from "@/components/SectionLayout";
+import HsSectionLayout from "@/components/HsSectionLayout";
 import { AlertCircle, Lightbulb, ArrowRight } from "lucide-react";
 
 const sampleEssayBreakdown = {
@@ -127,7 +127,7 @@ const commonMistakes = [
 
 export default function ApplicationsPage() {
   return (
-    <SectionLayout
+    <HsSectionLayout
       eyebrow="Section 04 — Applications"
       title={`The application,\ndemystified.`}
       subtitle="The process is confusing by design. Here's everything broken down — from the Common App to writing an essay that actually sounds like you and gets you in."
@@ -135,8 +135,8 @@ export default function ApplicationsPage() {
       accentColor="#1A1A2E"
       accentBg="bg-[#1A1A2E]"
       accentText="text-white"
-      prevSection={{ href: "/timeline", label: "Timeline" }}
-      nextSection={{ href: "/extracurriculars", label: "Extracurriculars" }}
+      prevSection={{ href: "/high-school/timeline", label: "Timeline" }}
+      nextSection={{ href: "/high-school/extracurriculars", label: "Extracurriculars" }}
     >
       {/* Intro */}
       <div className="max-w-3xl mb-20">
@@ -344,6 +344,6 @@ export default function ApplicationsPage() {
           ))}
         </ul>
       </div>
-    </SectionLayout>
+    </HsSectionLayout>
   );
 }

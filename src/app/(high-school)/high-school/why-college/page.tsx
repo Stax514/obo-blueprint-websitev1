@@ -1,4 +1,4 @@
-import SectionLayout from "@/components/SectionLayout";
+import HsSectionLayout from "@/components/HsSectionLayout";
 import { TrendingUp, Users, Lightbulb, Shield, CheckCircle } from "lucide-react";
 
 const reasons = [
@@ -53,7 +53,7 @@ const myths = [
 
 export default function WhyCollegePage() {
   return (
-    <SectionLayout
+    <HsSectionLayout
       eyebrow="Section 01 — Why College?"
       title={`The real reason\nit matters.`}
       subtitle="Not the speech they give you at orientation. The actual case — with real numbers — for why college is still one of the best moves you can make."
@@ -61,7 +61,7 @@ export default function WhyCollegePage() {
       accentColor="#F4A825"
       accentBg="bg-[#F4A825]"
       accentText="text-[#0D0D0D]"
-      nextSection={{ href: "/which-college", label: "Which College?" }}
+      nextSection={{ href: "/high-school/which-college", label: "Which College?" }}
     >
       {/* Intro */}
       <div className="max-w-3xl mb-20">
@@ -169,6 +169,6 @@ export default function WhyCollegePage() {
           College isn&apos;t the only path. But for most students, it&apos;s the one with the highest probability of building the life you want. The question isn&apos;t really <em>if</em> — it&apos;s <em>how</em> to do it right, and how to do it for free. That&apos;s what this entire blueprint is about.
         </p>
       </div>
-    </SectionLayout>
+    </HsSectionLayout>
   );
 }

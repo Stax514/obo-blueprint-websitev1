@@ -1,4 +1,4 @@
-import SectionLayout from "@/components/SectionLayout";
+import HsSectionLayout from "@/components/HsSectionLayout";
 import { DollarSign, AlertCircle } from "lucide-react";
 
 const fafsaSteps = [
@@ -76,7 +76,7 @@ const negotiationTips = [
 
 export default function FinancialAidPage() {
   return (
-    <SectionLayout
+    <HsSectionLayout
       eyebrow="Section 06 — Financial Aid"
       title={`Don't let money\nstop you.`}
       subtitle="College can be free. Tsadiku went to UC Berkeley on scholarship. Adiyah goes to Yale on scholarship. Here's exactly how the money works — and how to get it."
@@ -84,7 +84,7 @@ export default function FinancialAidPage() {
       accentColor="#0F766E"
       accentBg="bg-[#0F766E]"
       accentText="text-white"
-      prevSection={{ href: "/extracurriculars", label: "Extracurriculars" }}
+      prevSection={{ href: "/high-school/extracurriculars", label: "Extracurriculars" }}
     >
       {/* Intro */}
       <div className="max-w-3xl mb-20">
@@ -218,6 +218,6 @@ export default function FinancialAidPage() {
           ))}
         </div>
       </div>
-    </SectionLayout>
+    </HsSectionLayout>
   );
 }

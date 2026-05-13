@@ -1,12 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 @theme inline {
+  /* Shared */
   --color-cream: #FAFAF7;
   --color-ink: #0D0D0D;
   --color-ink-muted: #6B6B6B;
+  --color-border: #E5E5E0;
+  --font-serif: 'Libre Bodoni', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  /* Obolu / High School palette */
   --color-gold: #F4A825;
   --color-gold-dark: #C4841A;
+  --color-gold-light: #FDF8EC;
   --color-terra: #C45B3D;
   --color-terra-light: #F0D5CE;
   --color-forest: #1B4332;
@@ -17,31 +24,30 @@
   --color-violet-light: #EDE9FE;
   --color-teal: #0F766E;
   --color-teal-light: #CCFBF1;
-  --color-border: #E5E5E0;
-  --font-serif: 'Libre Bodoni', Georgia, serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
+
+  /* Career palette */
+  --color-green: #059669;
+  --color-green-light: #ECFDF5;
+  --color-amber: #D97706;
+  --color-amber-light: #FFFBEB;
+  --color-purple: #7C3AED;
+  --color-purple-light: #F5F3FF;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   background-color: #FAFAF7;
   color: #0D0D0D;
   font-family: 'Inter', system-ui, sans-serif;
-  line-height: 1.6;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Libre Bodoni', Georgia, serif;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  line-height: 1.65;
+  font-size: 16px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -51,6 +57,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Obolu section cards */
 .section-card {
   transition: transform 150ms ease, box-shadow 150ms ease;
 }
@@ -64,3 +71,22 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration-thickness: 3px;
   text-underline-offset: 6px;
 }
+
+/* Callout styles (career pages) */
+.callout {
+  border-left: 3px solid;
+  padding: 0.875rem 1rem;
+  border-radius: 0 6px 6px 0;
+  margin: 1.25rem 0;
+}
+.callout-info  { border-color: #F4A825; background: #FDF8EC; }
+.callout-tip   { border-color: #059669; background: #ECFDF5; }
+.callout-warn  { border-color: #D97706; background: #FFFBEB; }
+.callout-clock { border-color: #7C3AED; background: #F5F3FF; }
+
+/* Scroll anchor offset */
+.year-block { scroll-margin-top: 80px; }
+
+/* Prose spacing */
+.prose-content > * + * { margin-top: 1rem; }
+.prose-content h3 { margin-top: 2rem; margin-bottom: 0.75rem; }
