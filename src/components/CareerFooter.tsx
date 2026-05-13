@@ -11,7 +11,7 @@ export default function CareerFooter() {
               <div className="w-8 h-8 bg-[#F4A825] rounded-sm flex items-center justify-center">
                 <span className="text-[#0D0D0D] font-bold text-sm" style={{ fontFamily: "'Libre Bodoni', serif" }}>O</span>
               </div>
-              <span className="font-bold text-lg" style={{ fontFamily: "'Libre Bodoni', serif" }}>Obolu Blueprint</span>
+              <span className="font-bold text-lg" style={{ fontFamily: "'Libre Bodoni', serif" }}>Blueprint</span>
             </div>
             <p className="text-[#9CA3AF] text-sm leading-relaxed max-w-xs">
               The complete guide from high school applications to your first career offer. Three stages. Written by Tsadiku and Adiyah Obolu. Free, no login, no paywall.
