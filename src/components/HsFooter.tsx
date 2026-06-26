@@ -53,7 +53,7 @@ export default function HsFooter() {
             <h3 className="text-[#F4A825] text-xs font-semibold uppercase tracking-widest mb-4">Sections</h3>
             <ul className="space-y-2">
               {[
-                ["About", "/high-school/about"],
+                ["About", "/"],
                 ["Why College", "/high-school/why-college"],
                 ["Which College", "/high-school/which-college"],
                 ["Timeline", "/high-school/timeline"],

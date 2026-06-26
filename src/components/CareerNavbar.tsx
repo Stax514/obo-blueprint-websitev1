@@ -1,9 +1,8 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
 import clsx from "clsx";
+import SiteHamburger from "@/components/SiteHamburger";
 
 const pmLinks = [
   { href: "/careers/product-management", label: "What is PM?" },
@@ -18,9 +17,7 @@ const pmPaths = ["/careers/product-management", "/careers/roadmap", "/careers/pr
 
 export default function CareerNavbar() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
 
-  const isHome = pathname === "/";
   const isCareersHub = pathname === "/careers";
   const isPM = pmPaths.some((p) => pathname === p || pathname.startsWith(p + "/"));
   const navLinks = isPM ? pmLinks : [];
@@ -29,9 +26,8 @@ export default function CareerNavbar() {
     <header className="sticky top-0 z-50 bg-[#FAFAF7]/95 backdrop-blur-sm border-b border-[#E5E5E0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <div className="flex items-center gap-3">
-            <Link href="/" onClick={() => setOpen(false)} className="flex items-center gap-2 group cursor-pointer">
+            <Link href="/" className="flex items-center gap-2 cursor-pointer">
               <div className="w-8 h-8 bg-[#0D0D0D] rounded-sm flex items-center justify-center">
                 <span className="text-[#F4A825] font-bold text-base" style={{ fontFamily: "'Libre Bodoni', serif" }}>O</span>
               </div>
@@ -51,7 +47,6 @@ export default function CareerNavbar() {
             )}
           </div>
 
-          {/* Desktop nav */}
           {navLinks.length > 0 && (
             <nav className="hidden lg:flex items-center gap-0.5">
               {navLinks.map((link) => (
@@ -72,14 +67,7 @@ export default function CareerNavbar() {
           )}
 
           <div className="flex items-center gap-3">
-            {isHome ? (
-              <Link
-                href="/careers"
-                className="hidden sm:inline-flex items-center px-4 py-2 bg-[#F4A825] text-[#0D0D0D] text-sm font-semibold rounded-md hover:bg-[#C4841A] transition-colors duration-150 cursor-pointer"
-              >
-                Get started
-              </Link>
-            ) : isCareersHub ? (
+            {isCareersHub ? (
               <Link
                 href="/careers/product-management"
                 className="hidden sm:inline-flex items-center px-4 py-2 bg-[#F4A825] text-[#0D0D0D] text-sm font-semibold rounded-md hover:bg-[#C4841A] transition-colors duration-150 cursor-pointer"
@@ -94,47 +82,10 @@ export default function CareerNavbar() {
                 Start here
               </Link>
             )}
-            {navLinks.length > 0 && (
-              <button
-                className="lg:hidden p-2 text-[#0D0D0D] cursor-pointer"
-                onClick={() => setOpen(!open)}
-                aria-label="Toggle menu"
-              >
-                {open ? <X size={20} /> : <Menu size={20} />}
-              </button>
-            )}
+            <SiteHamburger />
           </div>
         </div>
       </div>
-
-      {open && navLinks.length > 0 && (
-        <div className="lg:hidden border-t border-[#E5E5E0] bg-[#FAFAF7]">
-          <nav className="px-4 py-3 space-y-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className={clsx(
-                  "block px-3 py-2.5 rounded-md text-sm font-medium transition-colors cursor-pointer",
-                  pathname === link.href
-                    ? "bg-[#FDF8EC] text-[#C4841A]"
-                    : "text-[#6B6B6B] hover:text-[#0D0D0D] hover:bg-[#0D0D0D]/5"
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Link
-              href="/careers/roadmap"
-              onClick={() => setOpen(false)}
-              className="block mt-2 px-3 py-2.5 bg-[#0D0D0D] text-[#FAFAF7] text-sm font-semibold rounded-md text-center cursor-pointer"
-            >
-              Start here
-            </Link>
-          </nav>
-        </div>
-      )}
     </header>
   );
 }
