@@ -171,7 +171,7 @@ export default function AboutPage() {
                 className="text-2xl font-bold text-[#0D0D0D] leading-snug mb-4"
                 style={{ fontFamily: "'Libre Bodoni', serif" }}
               >
-                &ldquo;We&apos;re not here to inspire you. We&apos;re here to give you the actual information.&rdquo;
+                &ldquo;We&apos;re here to give you the blueprint we had growing up.&rdquo;
               </blockquote>
               <p className="text-[#0D0D0D]/70 text-sm">— Tsadiku & Adiyah Obolu</p>
             </div>
