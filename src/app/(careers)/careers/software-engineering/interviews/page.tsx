@@ -126,7 +126,7 @@ export default function SWEInterviewsPage() {
         <H2>How to practice</H2>
 
         <H3>LeetCode</H3>
-        <P>The standard. Start with easy problems to build confidence, move to medium, and work through common patterns — not random problems. Aim for 150+ medium problems by the start of junior year recruiting. Focus on recognizing problem types, not memorizing solutions.</P>
+        <P>The standard. Start with easy problems to build confidence, move to medium, and work through common patterns — not random problems. <strong>Aim for 150+ medium problems by the start of junior year recruiting</strong> — this is the minimum floor, not a stretch goal. Focus on recognizing problem types, not memorizing solutions.</P>
         <P>Study by pattern: sliding window, two pointers, BFS/DFS, dynamic programming, binary search on the answer. When you see a new problem, ask: what pattern does this look like? That's the skill the interview tests.</P>
 
         <H3>Mock interviews</H3>

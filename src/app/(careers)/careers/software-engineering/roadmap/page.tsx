@@ -64,7 +64,7 @@ export default function SWERoadmapPage() {
         <P>Freshman year feels like adjustment. It is. But the students who start positioning themselves in September — not January, not sophomore year — are the ones who have options by junior year.</P>
 
         <H3>Apply to early diversity programs in August and September</H3>
-        <P>This is the single highest-leverage action you can take as a freshman. Google STEP, Microsoft New Technologist, Meta University, and Amazon Propel are programs specifically designed for freshmen and sophomores from underrepresented groups. They exist to open doors that recruiting pipelines don't naturally open. Multiple engineers at Google and Meta got their start through STEP as freshmen.</P>
+        <P>This is the single highest-leverage action you can take as a freshman. Google STEP, Microsoft New Technologist (freshman-specific), Meta University, and Amazon Propel are programs designed for freshmen and sophomores from underrepresented groups. They exist to open doors that recruiting pipelines don't naturally open. Multiple engineers at Google and Meta got their start through STEP as freshmen.</P>
         <P>Applications open in August and September — before most people have been to their first class. Apply immediately.</P>
         <P>See the full list on the <Link href="/careers/software-engineering/programs" className="font-semibold text-[#1A1A2E] underline underline-offset-2 hover:text-[#F4A825] transition-colors">Programs page</Link>.</P>
 
@@ -81,8 +81,8 @@ export default function SWERoadmapPage() {
         <H3>Join one technical club</H3>
         <P>Find your school's ACM chapter, coding club, hackathon team, or CS-adjacent organization. Apply to it in the first weeks of school. These clubs host LeetCode sessions, have alumni in tech, and connect you to people ahead of you on the same path. See the <Link href="/careers/software-engineering/clubs" className="font-semibold text-[#1A1A2E] underline underline-offset-2 hover:text-[#F4A825] transition-colors">Clubs page</Link> for what to look for.</P>
 
-        <H3>If you're eligible, TA a CS course</H3>
-        <P>TA experience shows up consistently on the profiles of engineers at top companies. It builds your relationship with faculty, deepens your technical knowledge, and signals that you understand the material well enough to teach it. Look for TA opportunities starting freshman spring.</P>
+        <H3>TA a CS course as soon as you're eligible</H3>
+        <P>TA experience shows up consistently on the profiles of engineers at top companies. It builds your relationship with faculty, deepens your technical knowledge, and signals that you understand the material well enough to teach it. Some schools allow freshmen to TA introductory courses — look for these opportunities as early as freshman spring.</P>
 
         <Note>
           If you can't land a tech internship freshman summer — build something. Start a personal project, contribute to open source, do freelance work, participate in an MLH Fellowship. Don't let the summer be blank.
@@ -93,7 +93,7 @@ export default function SWERoadmapPage() {
 
         <H3>Internship target: any tech company</H3>
         <P>The goal sophomore summer is to get a real software engineering internship. It doesn't need to be FAANG. A startup where you're writing production code, a mid-size tech company, a research lab — anything where you're building something real. The sophomore internship is what gets you the junior internship that gets you the offer.</P>
-        <P>Google STEP and Microsoft Explore are most competitive sophomore year. Apply to those and apply broadly everywhere else. The earlier you submit, the better your chances.</P>
+        <P>Google STEP and Microsoft Explore (the sophomore-year program — distinct from New Technologist which targets freshmen) are most competitive sophomore year. Apply to those and apply broadly everywhere else. The earlier you submit, the better your chances.</P>
 
         <H3>Start LeetCode now</H3>
         <P>Junior year recruiting starts in August and September of junior year. That means your technical interview preparation needs to begin sophomore year — not junior year. Work through easy and medium problems consistently. Build the muscle. 150+ problems by the start of junior year is a reasonable floor.</P>
@@ -133,7 +133,16 @@ export default function SWERoadmapPage() {
         <P>If your recruiting didn't go the way you wanted, a strong Master's program resets your pipeline access. Georgia Tech OMSCS, Carnegie Mellon, Stanford, UIUC, and UT Austin all have strong recruiting relationships with top companies. The MS is not required — but it's a real option if undergrad recruiting didn't land where you wanted.</P>
 
         <H3>Non-linear paths work</H3>
-        <P>Some engineers went Capital One → Twitter → Meta over three years. Others started at a regional tech company and moved to FAANG two years in. Every step built the next one. The path is not a single gate — it's a series of doors, each one opened by what you did before it.</P>
+        <P>Some engineers went Capital One → Twitter → Meta over three years. Others started at a mid-size company or a regional firm and moved to a top tech company two years in. These lateral moves are common and legitimate — you don't have to land Google on the first try. Every step builds the next one. The path is not a single gate — it's a series of doors, each one opened by what you did before it.</P>
+
+        <H2>What to avoid</H2>
+        <ul className="list-disc list-inside space-y-2 text-sm text-[#374151] mb-6 ml-2">
+          <li><strong>Joining 10 clubs shallowly.</strong> One club where you lead something is worth more than ten clubs where you showed up twice. Depth signals commitment. Breadth without depth signals nothing.</li>
+          <li><strong>Waiting until junior or senior year to start coding seriously.</strong> Technical skill takes time to build. The students who do well in interviews started writing code years before the interview happened.</li>
+          <li><strong>Only applying to your dream companies.</strong> Apply broadly. A startup internship junior year is infinitely better than no internship. You can always move up — you can't un-lose a summer.</li>
+          <li><strong>Treating LeetCode as something you can cram.</strong> You can't. 150+ problems over 18 months beats 150 problems in a 3-week sprint every time. Start early.</li>
+          <li><strong>Disappearing after coffee chats.</strong> The referral value of a contact comes from the relationship. Follow up, update people on how applications went, keep the relationship warm. These are the people who will go to bat for you.</li>
+        </ul>
 
         <div className="mt-12 flex flex-col sm:flex-row gap-3">
           <Link

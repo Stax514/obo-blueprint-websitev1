@@ -138,7 +138,7 @@ export default function SWEClubsPage() {
 
         <H2>Recommended Major</H2>
         <P>Computer Science is the standard and the clearest path. If your school offers EECS (Electrical Engineering & Computer Science) or Computer Engineering, those are strong alternatives. Mathematics + CS as a joint major is respected at any school that offers it.</P>
-        <P>Statistics or Data Science works specifically for ML and AI roles. Any other STEM major can work only if you supplement it with strong projects and internships that prove coding ability. Business, economics, and non-technical majors do not open doors at Google or Meta — no matter how strong your other credentials are.</P>
+        <P>Statistics or Data Science works specifically for ML and AI roles. Artificial Intelligence as a declared major is an emerging path at schools that offer it — especially for ML-focused roles. Any other STEM major can work only if you supplement it with strong projects and internships that prove coding ability. Business, economics, and non-technical majors do not open doors at Google or Meta — no matter how strong your other credentials are.</P>
 
         <H2>Clubs — What to Join</H2>
 
@@ -178,6 +178,13 @@ export default function SWEClubsPage() {
             </div>
           ))}
         </div>
+
+        <H2>What to avoid</H2>
+        <ul className="list-disc list-inside space-y-2 text-sm text-[#374151] mb-6 ml-2">
+          <li><strong>Joining 10 clubs shallowly.</strong> Recruiters and interviewers can tell. One meaningful leadership role in one organization is worth more than a resume full of clubs where you attended a few meetings.</li>
+          <li><strong>Only joining for the resume line.</strong> The best clubs and research labs can tell when someone's not genuinely interested. Show up because you care — the people who do are the ones who get pulled into the best opportunities.</li>
+          <li><strong>Waiting until junior year to join anything.</strong> The students who get the most out of organizations are the ones who joined freshman year, grew into leadership roles, and have two or three years of consistent involvement to talk about.</li>
+        </ul>
 
         <H2>You don't need to know how to code to start building.</H2>
         <P>Tools like Claude, Cursor, and other AI-assisted builders let you create apps, websites, and automations without writing every line of code yourself. You can describe what you want to build, get working code, and ship something real. Non-technical students are building real products with these tools today. If you have an idea, the barrier to building has never been lower. Start.</P>
