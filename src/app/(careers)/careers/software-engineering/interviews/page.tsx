@@ -1,26 +1,26 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, AlertTriangle, CheckCircle2, Lightbulb } from "lucide-react";
 
-function H2({ children }: { children: React.ReactNode }) {
+function Callout({ type, children }: { type: "info" | "warn" | "tip"; children: React.ReactNode }) {
+  const s = {
+    info: { cls: "bg-[#EFF6FF] border-[#1A1A2E]", Icon: CheckCircle2, color: "text-[#1A1A2E]" },
+    warn: { cls: "bg-[#FFFBEB] border-[#D97706]",  Icon: AlertTriangle, color: "text-[#D97706]" },
+    tip:  { cls: "bg-[#F0FDF4] border-[#059669]",  Icon: Lightbulb,     color: "text-[#059669]" },
+  }[type];
   return (
-    <h2 className="text-xl font-bold text-[#0D0D0D] mt-10 mb-3" style={{ fontFamily: "'Libre Bodoni', serif" }}>
-      {children}
-    </h2>
+    <div className={`${s.cls} border-l-4 p-4 rounded-r-lg flex gap-3 my-6`}>
+      <s.Icon size={15} className={`${s.color} flex-shrink-0 mt-0.5`} />
+      <p className="text-sm leading-relaxed text-[#374151]">{children}</p>
+    </div>
   );
 }
 
-function P({ children }: { children: React.ReactNode }) {
-  return <p className="text-[#374151] text-sm leading-relaxed mb-4">{children}</p>;
-}
-
-function H3({ children }: { children: React.ReactNode }) {
-  return <h3 className="text-base font-bold text-[#0D0D0D] mt-6 mb-2">{children}</h3>;
-}
-
-function Note({ children }: { children: React.ReactNode }) {
+function Divider({ label }: { label: string }) {
   return (
-    <div className="border-l-4 border-[#C45B3D] bg-[#FDF3EF] px-4 py-3 rounded-r-lg my-4">
-      <p className="text-sm text-[#374151] leading-relaxed">{children}</p>
+    <div className="flex items-center gap-3 my-10">
+      <div className="h-px flex-1 bg-[#E2E8F0]" />
+      <h2 className="text-xl font-extrabold text-[#1A1A2E] whitespace-nowrap">{label}</h2>
+      <div className="h-px flex-1 bg-[#E2E8F0]" />
     </div>
   );
 }
@@ -40,156 +40,189 @@ const dsa = [
   { topic: "Intervals", priority: "Medium", desc: "Merge intervals, meeting rooms, non-overlapping. Sort then scan." },
 ];
 
+const interviewSteps = [
+  { label: "Clarify the problem.", desc: "Ask about edge cases, input size, and constraints before writing a single line. The interviewer wants to see you think before you code.", tips: ["'Can the input be empty?' 'Are there duplicates?' 'What's the expected input size?'", "Restating the problem in your own words is a strong signal"] },
+  { label: "Talk through your approach first.", desc: "State your plan before you start coding. The interviewer is evaluating how you think — not just what you produce.", tips: ["Mention time and space complexity of your approach", "If you see a brute-force solution, name it, then discuss how to improve it"] },
+  { label: "Start with a working solution.", desc: "A working O(n²) solution is better than an incomplete O(n) one. Get something correct on the board, then optimize.", tips: ["Don't freeze trying to find the perfect solution immediately", "Correctness first — optimization second"] },
+  { label: "Test your code manually.", desc: "Walk through your code with a sample input before you say you're done. Catch your own bugs.", tips: ["Use a simple example, then test an edge case (empty input, single element, duplicates)"] },
+  { label: "Talk when you're stuck.", desc: "If you get stuck, say what you know. 'I know I need to track something here — let me think about what data structure makes sense.' Silence is worse than thinking out loud.", tips: ["Ask for a hint if you're truly stuck — it's better than sitting in silence"] },
+];
+
 const behavioral = [
-  {
-    q: "Tell me about yourself.",
-    tip: "Structure: where you're from, what you're studying, what you've built or worked on, why you're interested in this company. Keep it under 90 seconds. Practice until it sounds natural, not rehearsed.",
-  },
-  {
-    q: "Tell me about a challenging project you worked on.",
-    tip: "Use STAR: Situation, Task, Action, Result. Be specific about what you built, what went wrong, and what you did about it. Numbers help — users, performance improvements, lines of code are secondary to impact.",
-  },
-  {
-    q: "Tell me about a time you had to learn something quickly.",
-    tip: "Tech changes fast. This question tests intellectual curiosity and self-direction. Pick something real — a language you learned for a project, a framework you picked up mid-internship.",
-  },
-  {
-    q: "How do you handle disagreement with a teammate?",
-    tip: "SWEs work in teams. Show that you can advocate for your position with data and reasoning, listen genuinely, and move forward once a decision is made. No stories where you were just right and they were wrong.",
-  },
-  {
-    q: "Where do you see yourself in 5 years?",
-    tip: "Be honest but be directional. Talk about the type of engineer you want to be, the problems you want to work on, the skills you want to build. Don't say 'PM' in a SWE interview.",
-  },
-  {
-    q: "Why this company?",
-    tip: "This must be specific. Research the team, the products, the engineering culture. Generic answers about 'impact' and 'innovation' don't land. Name a product you use, a team you want to join, a technical challenge the company is working on.",
-  },
+  { q: "Tell me about yourself.", tip: "Structure: where you're from, what you're studying, what you've built or worked on, why you're interested in this company. Keep it under 90 seconds. Practice until it sounds natural, not rehearsed." },
+  { q: "Tell me about a challenging project you worked on.", tip: "Use STAR: Situation, Task, Action, Result. Be specific about what you built, what went wrong, and what you did about it. Numbers help — impact matters more than lines of code." },
+  { q: "Tell me about a time you had to learn something quickly.", tip: "Tech changes fast. This tests intellectual curiosity and self-direction. Pick something real — a language you learned for a project, a framework you picked up mid-internship." },
+  { q: "How do you handle disagreement with a teammate?", tip: "Show that you can advocate for your position with data and reasoning, listen genuinely, and move forward once a decision is made. No stories where you were just right and they were wrong." },
+  { q: "Where do you see yourself in 5 years?", tip: "Be directional. Talk about the type of engineer you want to be, the problems you want to work on, the skills you want to build." },
+  { q: "Why this company?", tip: "This must be specific. Research the team, the products, the engineering culture. Generic answers don't land. Name a product you use, a team you want to join, a technical challenge the company is working on." },
 ];
 
 export default function SWEInterviewsPage() {
   return (
-    <>
-      <section className="bg-[#C45B3D] py-16 md:py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/careers/software-engineering" className="inline-flex items-center gap-1.5 text-sm text-white/50 hover:text-white transition-colors mb-6 cursor-pointer">
-            ← Software Engineering
-          </Link>
-          <p className="text-white/50 text-xs font-semibold uppercase tracking-widest mb-4">Interview Prep</p>
-          <h1 className="text-4xl sm:text-5xl font-bold text-[#FAFAF7] leading-[1.05] mb-4" style={{ fontFamily: "'Libre Bodoni', serif" }}>
-            Technical Interview Guide.
-          </h1>
-          <p className="text-white/70 text-base leading-relaxed max-w-xl">
-            What to study, in what order, and how to practice so you're ready when it counts.
-          </p>
-        </div>
-      </section>
-
-      <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-
-        <Note>
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      {/* Header */}
+      <div className="mb-10">
+        <Link href="/careers/software-engineering" className="text-xs font-semibold text-[#6B7280] hover:text-[#1A1A2E] transition-colors">
+          ← Software Engineering
+        </Link>
+        <span className="block text-xs font-semibold uppercase tracking-widest text-[#C45B3D] mt-4 mb-2">Interview Prep</span>
+        <h1 className="text-3xl sm:text-4xl font-bold text-[#0D0D0D] mb-4" style={{ fontFamily: "'Libre Bodoni', serif" }}>
+          Technical Interview Guide.
+        </h1>
+        <p className="text-[#6B6B6B] text-lg leading-relaxed mb-6">
+          What to study, in what order, and how to practice so you're ready when it counts.
+        </p>
+        <Callout type="info">
           The engineers who interview well are not the ones who are smarter — they're the ones who have had more reps. Start practicing early. Every practice session makes the next one easier. By the time your junior year interviews come, these should feel automatic.
-        </Note>
+        </Callout>
+      </div>
 
-        <H2>What SWE interviews actually test</H2>
-        <P>A standard SWE interview at a top tech company has two components: a technical coding screen and a behavioral interview. Some companies also include a systems design round for more senior candidates — increasingly relevant even for new grads at companies like Google and Meta.</P>
-
-        <ul className="list-disc list-inside space-y-2 text-sm text-[#374151] mb-6 ml-2">
-          <li><strong>Technical coding screen</strong> — 1–2 LeetCode-style problems solved in 45–60 minutes. You explain your thinking out loud. The interviewer is evaluating both correctness and communication.</li>
-          <li><strong>Behavioral interview</strong> — structured questions about past experience using the STAR format. Every company does this.</li>
-          <li><strong>Systems design</strong> — design a scalable system (e.g., design Twitter, design a URL shortener). More common at junior+ levels. Google and Meta include this even for new grads.</li>
-        </ul>
-
-        <H2>Data Structures & Algorithms — What to Study</H2>
-        <P>These are the categories that appear most often in technical interviews. Study them in roughly this order — essentials first, then high priority, then medium.</P>
-
-        <div className="space-y-3 mt-4">
-          {dsa.map((item) => (
-            <div key={item.topic} className="border border-[#E5E5E0] rounded-xl p-4 bg-white">
-              <div className="flex items-center justify-between mb-1.5">
-                <p className="text-sm font-semibold text-[#0D0D0D]">{item.topic}</p>
-                <span className={`text-[10px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full ${
-                  item.priority === "Essential"
-                    ? "text-[#C45B3D] bg-[#FDF3EF]"
-                    : item.priority === "High"
-                    ? "text-[#1A1A2E] bg-[#EEF2FF]"
-                    : "text-[#6B6B6B] bg-[#F5F5F0]"
-                }`}>
-                  {item.priority}
-                </span>
-              </div>
-              <p className="text-xs text-[#6B6B6B] leading-relaxed">{item.desc}</p>
+      <Divider label="What SWE Interviews Actually Test" />
+      <p className="text-sm text-[#6B6B6B] leading-relaxed mb-5">A standard SWE interview has two components: a technical coding screen and a behavioral interview. Some companies include a systems design round.</p>
+      <div className="space-y-3">
+        {[
+          { label: "Technical coding screen", desc: "1–2 LeetCode-style problems solved in 45–60 minutes. You explain your thinking out loud. The interviewer evaluates both correctness and communication." },
+          { label: "Behavioral interview", desc: "Structured questions about past experience using the STAR format. Every company does this." },
+          { label: "Systems design", desc: "Design a scalable system (e.g., design Twitter, design a URL shortener). More common at junior+ levels. Google and Meta include this even for new grads." },
+        ].map((item, i) => (
+          <div key={i} className="flex gap-4 p-4 border border-[#E5E5E0] rounded-lg bg-white">
+            <div className="flex-shrink-0 w-7 h-7 rounded-full bg-[#F5F5F0] border border-[#E5E5E0] flex items-center justify-center text-xs font-bold text-[#6B6B6B]">
+              {i + 1}
             </div>
-          ))}
-        </div>
-
-        <H2>How to practice</H2>
-
-        <H3>LeetCode</H3>
-        <P>The standard. Start with easy problems to build confidence, move to medium, and work through common patterns — not random problems. <strong>Aim for 150+ medium problems by the start of junior year recruiting</strong> — this is the minimum floor, not a stretch goal. Focus on recognizing problem types, not memorizing solutions.</P>
-        <P>Study by pattern: sliding window, two pointers, BFS/DFS, dynamic programming, binary search on the answer. When you see a new problem, ask: what pattern does this look like? That's the skill the interview tests.</P>
-
-        <H3>Mock interviews</H3>
-        <P>Solo LeetCode is not enough. You need to practice explaining your thinking out loud while solving under time pressure. Use Pramp (free peer mock interviews), interviewing.io (practice with real engineers), or sit down with a friend and take turns interviewing each other. Record yourself at least once — watching yourself on video is uncomfortable and useful.</P>
-
-        <H3>The interview itself</H3>
-        <ul className="list-disc list-inside space-y-2 text-sm text-[#374151] mb-6 ml-2">
-          <li>Clarify the problem before you start coding. Ask about edge cases, input size, constraints.</li>
-          <li>Talk through your approach before you write a line. The interviewer wants to see how you think.</li>
-          <li>Start with a brute-force solution if you need to. Then optimize. A working O(n²) solution is better than an incomplete O(n) one.</li>
-          <li>Test your code with an example before you say you're done. Walk through it manually.</li>
-          <li>If you get stuck, say what you know: "I know I need to track something here — let me think about what data structure makes sense." Silence is worse than thinking out loud.</li>
-        </ul>
-
-        <H2>Systems Design</H2>
-        <P>For juniors and new grads, systems design rounds test your ability to think about scale and trade-offs — not your ability to design production infrastructure. The questions are open-ended: design a URL shortener, design a messaging app, design a ride-sharing service.</P>
-
-        <H3>Framework</H3>
-        <ul className="list-disc list-inside space-y-2 text-sm text-[#374151] mb-6 ml-2">
-          <li><strong>Clarify requirements.</strong> Functional (what does it do?) and non-functional (how many users? what's the latency requirement?).</li>
-          <li><strong>Estimate scale.</strong> How many requests per second? How much data storage? Back-of-the-envelope math matters.</li>
-          <li><strong>High-level design.</strong> Draw the major components — clients, load balancers, servers, databases, caches, CDNs.</li>
-          <li><strong>Deep dive into one component.</strong> The interviewer will push you to go deeper somewhere. Know databases (SQL vs NoSQL trade-offs), caching (Redis), and message queues (Kafka).</li>
-          <li><strong>Discuss trade-offs.</strong> Every design decision has trade-offs. Name them. Showing you understand trade-offs is the point.</li>
-        </ul>
-        <P>Resources: <em>System Design Interview</em> by Alex Xu, Grokking the System Design Interview (Educative), and YouTube (ByteByteGo is excellent).</P>
-
-        <H2>Behavioral Interview</H2>
-        <P>Every company does behavioral interviews. Prepare for these with the same rigor as the technical screen. Use the STAR format: Situation, Task, Action, Result. Be specific. Numbers and outcomes matter.</P>
-
-        <div className="space-y-4 mt-4">
-          {behavioral.map((item) => (
-            <div key={item.q} className="border border-[#E5E5E0] rounded-xl p-5 bg-white">
-              <p className="text-sm font-semibold text-[#0D0D0D] mb-2">{item.q}</p>
-              <p className="text-xs text-[#6B6B6B] leading-relaxed">{item.tip}</p>
+            <div>
+              <p className="font-semibold text-[#0D0D0D] text-sm">{item.label}</p>
+              <p className="text-sm text-[#6B6B6B] mt-0.5 leading-relaxed">{item.desc}</p>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
+      </div>
 
-        <H2>When to start preparing</H2>
-        <P>Freshman year: start LeetCode easy problems. Get comfortable with arrays, strings, and hash maps.</P>
-        <P>Sophomore year: move to medium problems. Do 2–3 problems per week minimum. Start doing mock interviews with friends.</P>
-        <P>Junior year (before recruiting): 150+ problems done, patterns internalized, behavioral stories prepared. By September of junior year you should be interviewing-ready.</P>
+      <Divider label="Data Structures & Algorithms" />
+      <p className="text-sm text-[#6B6B6B] mb-6">These are the categories that appear most often in technical interviews. Study them in roughly this order — essentials first, then high priority, then medium. <strong className="text-[#0D0D0D]">Aim for 150+ medium problems by the start of junior year recruiting</strong> — this is the minimum floor, not a stretch goal.</p>
 
-        <Note>
-          The people who interview well are not smarter than you. They started earlier and practiced more. That's it. Start now.
-        </Note>
+      <div className="space-y-3">
+        {dsa.map((item) => (
+          <div key={item.topic} className="flex gap-4 p-4 border border-[#E5E5E0] rounded-lg bg-white">
+            <span className={`flex-shrink-0 text-[10px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full h-fit mt-0.5 ${
+              item.priority === "Essential" ? "text-[#C45B3D] bg-[#FDF3EF]" :
+              item.priority === "High" ? "text-[#1A1A2E] bg-[#EEF2FF]" :
+              "text-[#6B6B6B] bg-[#F5F5F0]"
+            }`}>
+              {item.priority}
+            </span>
+            <div>
+              <p className="font-semibold text-[#0D0D0D] text-sm">{item.topic}</p>
+              <p className="text-sm text-[#6B6B6B] mt-0.5 leading-relaxed">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
 
-        <div className="mt-10 flex flex-col sm:flex-row gap-3">
-          <Link
-            href="/careers/software-engineering/roadmap"
-            className="inline-flex items-center gap-2 px-5 py-3 bg-[#C45B3D] text-[#FAFAF7] text-sm font-semibold rounded-lg hover:bg-[#F4A825] hover:text-[#0D0D0D] transition-colors cursor-pointer"
-          >
-            ← Back to Roadmap <ArrowRight size={14} />
-          </Link>
-          <Link
-            href="/careers/resources"
-            className="inline-flex items-center gap-2 px-5 py-3 border border-[#E5E5E0] text-[#0D0D0D] text-sm font-semibold rounded-lg hover:border-[#C45B3D] transition-colors cursor-pointer"
-          >
-            Resume & Templates <ArrowRight size={14} />
-          </Link>
-        </div>
-      </section>
-    </>
+      <Divider label="How to Practice" />
+      <div className="bg-[#F5F5F0] border border-[#E5E5E0] rounded-xl p-6 mb-6">
+        <p className="text-xs font-semibold uppercase tracking-widest text-[#9CA3AF] mb-3">LeetCode</p>
+        <p className="text-sm text-[#6B6B6B] leading-relaxed mb-3">The standard. Start with easy problems to build confidence, move to medium, and work through common patterns — not random problems. Focus on recognizing problem types, not memorizing solutions.</p>
+        <p className="text-sm text-[#6B6B6B] leading-relaxed">Study by pattern: sliding window, two pointers, BFS/DFS, dynamic programming, binary search on the answer. When you see a new problem, ask: what pattern does this look like? That's the skill the interview tests.</p>
+      </div>
+      <div className="bg-[#F5F5F0] border border-[#E5E5E0] rounded-xl p-6 mb-6">
+        <p className="text-xs font-semibold uppercase tracking-widest text-[#9CA3AF] mb-3">Mock Interviews</p>
+        <p className="text-sm text-[#6B6B6B] leading-relaxed">Solo LeetCode is not enough. Practice explaining your thinking out loud while solving under time pressure. Use Pramp (free peer mock interviews), interviewing.io (practice with real engineers), or sit down with a friend and take turns. Record yourself at least once — watching yourself is uncomfortable and useful.</p>
+      </div>
+
+      <Divider label="The Interview Itself" />
+      <div className="space-y-3">
+        {interviewSteps.map((s, i) => (
+          <div key={i} className="flex gap-4 p-4 border border-[#E5E5E0] rounded-lg bg-white">
+            <div className="flex-shrink-0 w-7 h-7 rounded-full bg-[#1A1A2E] flex items-center justify-center text-xs font-bold text-white">
+              {i + 1}
+            </div>
+            <div>
+              <p className="font-semibold text-[#0D0D0D] text-sm">{s.label}</p>
+              <p className="text-sm text-[#6B6B6B] mt-0.5 leading-relaxed">{s.desc}</p>
+              {s.tips && (
+                <ul className="mt-2 space-y-1">
+                  {s.tips.map((t, ti) => (
+                    <li key={ti} className="flex gap-2 text-xs text-[#9CA3AF]">
+                      <span>→</span>{t}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <Divider label="Systems Design" />
+      <p className="text-sm text-[#6B6B6B] leading-relaxed mb-5">For juniors and new grads, systems design rounds test your ability to think about scale and trade-offs — not your ability to design production infrastructure. The questions are open-ended: design a URL shortener, design a messaging app, design a ride-sharing service.</p>
+      <div className="space-y-3">
+        {[
+          { label: "Clarify requirements.", desc: "Functional (what does it do?) and non-functional (how many users? what's the latency requirement?)." },
+          { label: "Estimate scale.", desc: "How many requests per second? How much data storage? Back-of-the-envelope math matters." },
+          { label: "High-level design.", desc: "Draw the major components — clients, load balancers, servers, databases, caches, CDNs." },
+          { label: "Deep dive into one component.", desc: "The interviewer will push you to go deeper somewhere. Know databases (SQL vs NoSQL trade-offs), caching (Redis), and message queues (Kafka)." },
+          { label: "Discuss trade-offs.", desc: "Every design decision has trade-offs. Name them. Showing you understand trade-offs is the point." },
+        ].map((s, i) => (
+          <div key={i} className="flex gap-4 p-4 border border-[#E5E5E0] rounded-lg bg-white">
+            <div className="flex-shrink-0 w-7 h-7 rounded-full bg-[#F5F5F0] border border-[#E5E5E0] flex items-center justify-center text-xs font-bold text-[#6B6B6B]">
+              {i + 1}
+            </div>
+            <div>
+              <p className="font-semibold text-[#0D0D0D] text-sm">{s.label}</p>
+              <p className="text-sm text-[#6B6B6B] mt-0.5 leading-relaxed">{s.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <Callout type="tip">
+        Resources: <em>System Design Interview</em> by Alex Xu, Grokking the System Design Interview (Educative), and YouTube (ByteByteGo is excellent).
+      </Callout>
+
+      <Divider label="Behavioral Interview" />
+      <p className="text-sm text-[#6B6B6B] mb-6">Every company does behavioral interviews. Prepare with the same rigor as the technical screen. Use STAR: Situation, Task, Action, Result. Be specific — numbers and outcomes matter.</p>
+
+      <div className="space-y-3">
+        {behavioral.map((item, i) => (
+          <div key={i} className="border border-[#E5E5E0] rounded-xl p-5 bg-white">
+            <div className="bg-[#0F172A] text-white rounded-lg px-4 py-3 mb-4">
+              <p className="text-xs text-[#6B6B6B] mb-1">Interview question</p>
+              <p className="text-sm font-medium">&ldquo;{item.q}&rdquo;</p>
+            </div>
+            <p className="text-sm text-[#6B6B6B] leading-relaxed">{item.tip}</p>
+          </div>
+        ))}
+      </div>
+
+      <Divider label="When to Start Preparing" />
+      <div className="space-y-3">
+        {[
+          { label: "Freshman year", desc: "Start LeetCode easy problems. Get comfortable with arrays, strings, and hash maps." },
+          { label: "Sophomore year", desc: "Move to medium problems. Do 2–3 problems per week minimum. Start doing mock interviews with friends." },
+          { label: "Junior year (before recruiting)", desc: "150+ problems done, patterns internalized, behavioral stories prepared. By September of junior year you should be interviewing-ready." },
+        ].map((item, i) => (
+          <div key={i} className="flex gap-4 p-4 border border-[#E5E5E0] rounded-lg bg-white">
+            <div className="flex-shrink-0 w-7 h-7 rounded-full bg-[#1A1A2E] flex items-center justify-center text-xs font-bold text-white">
+              {i + 1}
+            </div>
+            <div>
+              <p className="font-semibold text-[#0D0D0D] text-sm">{item.label}</p>
+              <p className="text-sm text-[#6B6B6B] mt-0.5 leading-relaxed">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <Callout type="warn">
+        The people who interview well are not smarter than you. They started earlier and practiced more. That's it. Start now.
+      </Callout>
+
+      <div className="mt-12 flex flex-col sm:flex-row gap-3">
+        <Link href="/careers/software-engineering/roadmap" className="inline-flex items-center gap-2 px-5 py-3 bg-[#1A1A2E] text-[#FAFAF7] text-sm font-semibold rounded-lg hover:bg-[#F4A825] hover:text-[#0D0D0D] transition-colors cursor-pointer">
+          ← Back to Roadmap
+        </Link>
+        <Link href="/careers/resources" className="inline-flex items-center gap-2 px-5 py-3 border border-[#E5E5E0] text-[#0D0D0D] text-sm font-semibold rounded-lg hover:border-[#1A1A2E] transition-colors cursor-pointer">
+          Resume & Templates <ArrowRight size={14} />
+        </Link>
+      </div>
+    </div>
   );
 }

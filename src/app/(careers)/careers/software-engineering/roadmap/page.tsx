@@ -1,164 +1,239 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, AlertTriangle, CheckCircle2, Lightbulb } from "lucide-react";
 
-function H2({ children }: { children: React.ReactNode }) {
+function Callout({ type, children }: { type: "info" | "warn" | "tip"; children: React.ReactNode }) {
+  const s = {
+    info: { cls: "bg-[#EFF6FF] border-[#1A1A2E]", Icon: CheckCircle2, color: "text-[#1A1A2E]" },
+    warn: { cls: "bg-[#FFFBEB] border-[#D97706]",  Icon: AlertTriangle, color: "text-[#D97706]" },
+    tip:  { cls: "bg-[#F0FDF4] border-[#059669]",  Icon: Lightbulb,     color: "text-[#059669]" },
+  }[type];
   return (
-    <h2 className="text-xl font-bold text-[#0D0D0D] mt-10 mb-3" style={{ fontFamily: "'Libre Bodoni', serif" }}>
-      {children}
-    </h2>
+    <div className={`${s.cls} border-l-4 p-4 rounded-r-lg flex gap-3 my-6`}>
+      <s.Icon size={15} className={`${s.color} flex-shrink-0 mt-0.5`} />
+      <p className="text-sm leading-relaxed text-[#374151]">{children}</p>
+    </div>
   );
 }
 
-function P({ children }: { children: React.ReactNode }) {
-  return <p className="text-[#374151] text-sm leading-relaxed mb-4">{children}</p>;
-}
-
-function H3({ children }: { children: React.ReactNode }) {
-  return <h3 className="text-base font-bold text-[#0D0D0D] mt-6 mb-2">{children}</h3>;
-}
-
-function Note({ children }: { children: React.ReactNode }) {
+function Divider({ label }: { label: string }) {
   return (
-    <div className="border-l-4 border-[#1A1A2E] bg-[#EEF2FF] px-4 py-3 rounded-r-lg my-4">
-      <p className="text-sm text-[#374151] leading-relaxed">{children}</p>
+    <div className="flex items-center gap-3 my-10">
+      <div className="h-px flex-1 bg-[#E2E8F0]" />
+      <h2 className="text-xl font-extrabold text-[#1A1A2E] whitespace-nowrap">{label}</h2>
+      <div className="h-px flex-1 bg-[#E2E8F0]" />
+    </div>
+  );
+}
+
+function Step({ num, title, body, bullets }: { num: string; title: string; body: string; bullets?: string[] }) {
+  return (
+    <div className="flex gap-4 p-4 border border-[#E5E5E0] rounded-lg bg-white">
+      <div className="flex-shrink-0 w-7 h-7 rounded-full bg-[#1A1A2E] flex items-center justify-center text-xs font-bold text-white">
+        {num}
+      </div>
+      <div>
+        <p className="font-semibold text-[#0D0D0D] text-sm">{title}</p>
+        <p className="text-sm text-[#6B6B6B] mt-0.5 leading-relaxed">{body}</p>
+        {bullets && (
+          <ul className="mt-2 space-y-1">
+            {bullets.map((b, i) => (
+              <li key={i} className="flex gap-2 text-xs text-[#9CA3AF]">
+                <span>→</span>{b}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }
 
 export default function SWERoadmapPage() {
   return (
-    <>
-      <section className="bg-[#1A1A2E] py-16 md:py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/careers/software-engineering" className="inline-flex items-center gap-1.5 text-sm text-[#9CA3AF] hover:text-[#F4A825] transition-colors mb-6 cursor-pointer">
-            ← Software Engineering
-          </Link>
-          <p className="text-[#9CA3AF] text-xs font-semibold uppercase tracking-widest mb-4">SWE Roadmap</p>
-          <h1 className="text-4xl sm:text-5xl font-bold text-[#FAFAF7] leading-[1.05] mb-4" style={{ fontFamily: "'Libre Bodoni', serif" }}>
-            Year-by-Year SWE Roadmap.
-          </h1>
-          <p className="text-[#9CA3AF] text-base leading-relaxed max-w-xl">
-            Freshman through senior year. What to do, when to do it, and what's at stake each summer.
-          </p>
-        </div>
-      </section>
-
-      <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-
-        <Note>
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      {/* Header */}
+      <div className="mb-10">
+        <Link href="/careers/software-engineering" className="text-xs font-semibold text-[#6B7280] hover:text-[#1A1A2E] transition-colors">
+          ← Software Engineering
+        </Link>
+        <span className="block text-xs font-semibold uppercase tracking-widest text-[#1A1A2E] mt-4 mb-2">SWE Roadmap</span>
+        <h1 className="text-3xl sm:text-4xl font-bold text-[#0D0D0D] mb-4" style={{ fontFamily: "'Libre Bodoni', serif" }}>
+          Year-by-Year SWE Roadmap.
+        </h1>
+        <p className="text-[#6B6B6B] text-lg leading-relaxed mb-6">
+          Freshman through senior year. What to do, when to do it, and what's at stake each summer.
+        </p>
+        <Callout type="info">
           The internship pipeline is real: freshman internship → sophomore internship → junior internship → full-time offer. Every summer builds the next one. The students who understand this in September of freshman year are the ones who walk into senior year with offers already signed.
-        </Note>
+        </Callout>
+      </div>
 
-        <H2>High School — Build Before You Arrive</H2>
-        <P>The engineers who land the best opportunities in college are almost always the ones who started building in high school. Not because the credential matters, but because the habit does.</P>
+      {/* High School */}
+      <Divider label="High School — Build Before You Arrive" />
+      <p className="text-sm text-[#6B6B6B] leading-relaxed mb-5">
+        The engineers who land the best opportunities in college are almost always the ones who started building in high school. Not because the credential matters, but because the habit does.
+      </p>
+      <div className="space-y-3">
+        <Step num="1" title="Build something real." body="An app, a website, a game, a hardware project. Even small-scale. The habit of shipping something — not just learning — is what separates people." />
+        <Step num="2" title="Excel at math." body="Linear algebra, probability, and discrete math are the foundations of CS. Strong math in high school (AMC, AIME, USACO, national competitions) shows up on profiles across the board." />
+        <Step num="3" title="Get early exposure to CS competitions." body="USACO, ACSL, hackathons, FIRST Robotics — these develop the problem-solving instinct that technical interviews test." />
+        <Step num="4" title="Lead something." body="It doesn't have to be technical. A club, a team, a community initiative. Leadership at any level shows up on profiles across the board." />
+      </div>
 
-        <H3>What actually matters</H3>
-        <ul className="list-disc list-inside space-y-2 text-sm text-[#374151] mb-6 ml-2">
-          <li><strong>Build something real.</strong> An app, a website, a game, a hardware project. Even small-scale. The habit of shipping something — not just learning — is what separates people.</li>
-          <li><strong>Excel at math.</strong> Linear algebra, probability, and discrete math are the foundations of CS. Strong math signals in high school (AMC, AIME, national competitions) show up consistently on the profiles of top engineers.</li>
-          <li><strong>Get early exposure to CS competitions.</strong> USACO, ACSL, hackathons, FIRST Robotics — these develop the problem-solving instinct that technical interviews test.</li>
-          <li><strong>Lead something.</strong> It doesn't have to be technical. A club, a team, a community initiative. Leadership at any level shows up on profiles across the board.</li>
-        </ul>
+      {/* Freshman */}
+      <Divider label="Freshman Year — Start Immediately" />
+      <p className="text-sm text-[#6B6B6B] leading-relaxed mb-5">
+        Freshman year feels like adjustment. It is. But the students who start positioning themselves in September — not January, not sophomore year — are the ones who have options by junior year.
+      </p>
+      <Callout type="warn">
+        Applications open in August and September — before most people have been to their first class. Apply immediately. The students who don't know this are the ones who find out too late.
+      </Callout>
+      <div className="space-y-3">
+        <Step
+          num="1"
+          title="Apply to early diversity programs immediately."
+          body="Google STEP, Microsoft New Technologist (freshman-specific), Meta University, and Amazon Propel are designed for freshmen and sophomores from underrepresented groups. Multiple engineers at Google and Meta got their start through STEP as freshmen."
+          bullets={["See the full list on the Programs page", "Apply to all of them — they're non-exclusive", "Applications close fast — don't wait"]}
+        />
+        <Step
+          num="2"
+          title="Build your GitHub from day one."
+          body="Set up a GitHub account. Start committing code — anything you're working on, any project you start. By the end of freshman year you should have 2–3 projects with READMEs."
+        />
+        <Step
+          num="3"
+          title="Join one technical club."
+          body="Find your school's ACM chapter, coding club, hackathon team, or CS-adjacent org. Apply in the first weeks. These clubs host LeetCode sessions, have alumni in tech, and connect you to people ahead of you on the same path."
+        />
+        <Step
+          num="4"
+          title="TA a CS course as soon as you're eligible."
+          body="TA experience shows up consistently on top engineers' profiles. Some schools allow freshmen to TA introductory courses — look for these opportunities as early as freshman spring."
+        />
+      </div>
+      <Callout type="tip">
+        If you can't land a tech internship freshman summer — build something. Start a personal project, contribute to open source, do freelance work, participate in an MLH Fellowship. Don't let the summer be blank.
+      </Callout>
 
-        <H2>Freshman Year — Start Immediately</H2>
-        <P>Freshman year feels like adjustment. It is. But the students who start positioning themselves in September — not January, not sophomore year — are the ones who have options by junior year.</P>
+      {/* Sophomore */}
+      <Divider label="Sophomore Year — Get Real Experience" />
+      <p className="text-sm text-[#6B6B6B] leading-relaxed mb-5">
+        Sophomore year is when the recruiting gets serious. Your freshman year experience — even if it was a small project, a student org, or a non-FAANG internship — is now your credential. Use it.
+      </p>
+      <div className="space-y-3">
+        <Step
+          num="1"
+          title="Internship target: any tech company."
+          body="The goal sophomore summer is a real software engineering internship. It doesn't need to be FAANG. A startup, a mid-size tech company, a research lab — anything where you're writing production code. This internship is what gets you the junior internship that gets you the offer."
+          bullets={["Google STEP and Microsoft Explore (the sophomore program) are most competitive this year", "Apply broadly — the earlier you submit, the better your chances"]}
+        />
+        <Step
+          num="2"
+          title="Start LeetCode now."
+          body="Junior year recruiting starts in August and September. That means technical interview preparation needs to begin sophomore year — not junior year. Work through easy and medium problems consistently. 150+ problems by the start of junior year is the floor."
+        />
+        <Step
+          num="3"
+          title="Go deeper in your clubs and projects."
+          body="Take on more responsibility in the organizations you joined freshman year. Lead a project, manage a team, start something that didn't exist. The sophomore year record is what you bring into junior year recruiting conversations."
+        />
+        <Step
+          num="4"
+          title="Build your referral network."
+          body="Start reaching out to engineers at companies you want to work at. Coffee chats, informational interviews, LinkedIn messages. The relationships you build sophomore year become the referrals you use junior year."
+        />
+      </div>
 
-        <H3>Apply to early diversity programs in August and September</H3>
-        <P>This is the single highest-leverage action you can take as a freshman. Google STEP, Microsoft New Technologist (freshman-specific), Meta University, and Amazon Propel are programs designed for freshmen and sophomores from underrepresented groups. They exist to open doors that recruiting pipelines don't naturally open. Multiple engineers at Google and Meta got their start through STEP as freshmen.</P>
-        <P>Applications open in August and September — before most people have been to their first class. Apply immediately.</P>
-        <P>See the full list on the <Link href="/careers/software-engineering/programs" className="font-semibold text-[#1A1A2E] underline underline-offset-2 hover:text-[#F4A825] transition-colors">Programs page</Link>.</P>
+      {/* Junior */}
+      <Divider label="Junior Year — The Critical Summer" />
+      <p className="text-sm text-[#6B6B6B] leading-relaxed mb-5">
+        This is the year that determines where you start after graduation. Every engineer in our research had an internship the summer after junior year. In almost every case, that internship led directly to a full-time offer.
+      </p>
+      <Callout type="warn">
+        Top tech companies close junior internship applications in October or November for the following summer. Some close sooner. Have your resume finalized before school starts. When a role opens, apply within 24 hours.
+      </Callout>
+      <div className="space-y-3">
+        <Step
+          num="1"
+          title="Applications open in August. Apply the day a role posts."
+          body="Google, Meta, Amazon, Microsoft, Apple, Stripe, Airbnb — have your resume and referrals ready before school starts."
+        />
+        <Step
+          num="2"
+          title="LeetCode target: 150+ problems minimum."
+          body="Medium difficulty, patterns over memorization. Practice until a dynamic programming or graph problem doesn't feel unfamiliar — it feels like a category you've seen before. See the Interview Prep guide for what to study."
+        />
+        <Step
+          num="3"
+          title="Use your referral network."
+          body="The coffee chats from sophomore year matter now. Reach out to your contacts when roles open. A referral dramatically increases the likelihood of getting an interview."
+        />
+        <Step
+          num="4"
+          title="Target the team, not just the company."
+          body="It's much harder to switch teams as a new grad than to pick the right team at the intern stage. Research the teams you're interviewing for. Ask about the team in your interviews."
+        />
+      </div>
+      <Callout type="tip">
+        If junior summer doesn't go as planned: build a meaningful project, contribute to open source, find a startup internship. Arrive at senior year with something real to talk about regardless of where it came from.
+      </Callout>
 
-        <H3>Academic priorities</H3>
-        <ul className="list-disc list-inside space-y-2 text-sm text-[#374151] mb-6 ml-2">
-          <li>Data Structures and Algorithms — the foundation of every technical interview. Start early.</li>
-          <li>Discrete Math and Calculus — required prerequisites and the base for everything more advanced.</li>
-          <li>Your first CS project course — build something that goes beyond homework assignments.</li>
-        </ul>
+      {/* Senior */}
+      <Divider label="Senior Year — Execute" />
+      <div className="space-y-3">
+        <Step
+          num="1"
+          title="If you got a return offer: evaluate carefully."
+          body="Your first team shapes your career more than the company name. Evaluate the team, the comp, and the growth potential before accepting. Then finish strong and start well."
+        />
+        <Step
+          num="2"
+          title="If you didn't get a return offer: recruit broadly now."
+          body="Apply to companies of all sizes — startup to enterprise — in September and October. Your junior year internship experience, projects, and GPA are still strong signals. Cast a wide net."
+        />
+        <Step
+          num="3"
+          title="The Master's as a path corrector."
+          body="If recruiting didn't go the way you wanted, a strong Master's program resets your pipeline. Georgia Tech OMSCS, Carnegie Mellon, Stanford, UIUC, and UT Austin all have strong recruiting relationships with top companies."
+        />
+        <Step
+          num="4"
+          title="Non-linear paths work."
+          body="Some engineers went Capital One → Twitter → Meta over three years. Others started at a mid-size company and moved to a top company two years in. Every step builds the next one. The path is not a single gate."
+        />
+      </div>
 
-        <H3>Build your portfolio from day one</H3>
-        <P>Set up a GitHub account. Start committing code — anything you're working on, any project you start. By the end of freshman year you should have 2–3 projects on GitHub with READMEs. Not polished products. Real attempts at building something.</P>
+      {/* What to avoid */}
+      <Divider label="What to Avoid" />
+      <div className="space-y-3">
+        {[
+          { title: "Joining 10 clubs shallowly.", body: "One club where you lead something is worth more than ten clubs where you showed up twice. Depth signals commitment. Breadth without depth signals nothing." },
+          { title: "Waiting until junior or senior year to start coding seriously.", body: "Technical skill takes time to build. The students who do well in interviews started writing code years before the interview happened." },
+          { title: "Only applying to your dream companies.", body: "Apply broadly. A startup internship junior year is infinitely better than no internship. You can always move up — you can't un-lose a summer." },
+          { title: "Treating LeetCode as something you can cram.", body: "You can't. 150+ problems over 18 months beats 150 problems in a 3-week sprint every time. Start early." },
+          { title: "Disappearing after coffee chats.", body: "The referral value of a contact comes from the relationship. Follow up. Keep the relationship warm. These are the people who will go to bat for you." },
+        ].map((item, i) => (
+          <div key={i} className="flex gap-4 p-4 border border-[#E5E5E0] rounded-lg bg-white">
+            <div className="flex-shrink-0 w-7 h-7 rounded-full bg-[#FEF2F2] flex items-center justify-center">
+              <AlertTriangle size={13} className="text-[#DC2626]" />
+            </div>
+            <div>
+              <p className="font-semibold text-[#0D0D0D] text-sm">{item.title}</p>
+              <p className="text-sm text-[#6B6B6B] mt-0.5 leading-relaxed">{item.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
 
-        <H3>Join one technical club</H3>
-        <P>Find your school's ACM chapter, coding club, hackathon team, or CS-adjacent organization. Apply to it in the first weeks of school. These clubs host LeetCode sessions, have alumni in tech, and connect you to people ahead of you on the same path. See the <Link href="/careers/software-engineering/clubs" className="font-semibold text-[#1A1A2E] underline underline-offset-2 hover:text-[#F4A825] transition-colors">Clubs page</Link> for what to look for.</P>
-
-        <H3>TA a CS course as soon as you're eligible</H3>
-        <P>TA experience shows up consistently on the profiles of engineers at top companies. It builds your relationship with faculty, deepens your technical knowledge, and signals that you understand the material well enough to teach it. Some schools allow freshmen to TA introductory courses — look for these opportunities as early as freshman spring.</P>
-
-        <Note>
-          If you can't land a tech internship freshman summer — build something. Start a personal project, contribute to open source, do freelance work, participate in an MLH Fellowship. Don't let the summer be blank.
-        </Note>
-
-        <H2>Sophomore Year — Get Real Experience</H2>
-        <P>Sophomore year is when the recruiting gets serious. Your freshman year experience — even if it was a small project, a student org, or a non-FAANG internship — is now your credential. Use it.</P>
-
-        <H3>Internship target: any tech company</H3>
-        <P>The goal sophomore summer is to get a real software engineering internship. It doesn't need to be FAANG. A startup where you're writing production code, a mid-size tech company, a research lab — anything where you're building something real. The sophomore internship is what gets you the junior internship that gets you the offer.</P>
-        <P>Google STEP and Microsoft Explore (the sophomore-year program — distinct from New Technologist which targets freshmen) are most competitive sophomore year. Apply to those and apply broadly everywhere else. The earlier you submit, the better your chances.</P>
-
-        <H3>Start LeetCode now</H3>
-        <P>Junior year recruiting starts in August and September of junior year. That means your technical interview preparation needs to begin sophomore year — not junior year. Work through easy and medium problems consistently. Build the muscle. 150+ problems by the start of junior year is a reasonable floor.</P>
-
-        <H3>Go deeper in your clubs and projects</H3>
-        <P>Take on more responsibility in the organizations you joined freshman year. Lead a project, manage a team, start something that didn't exist. The sophomore year club record is what you bring into junior year recruiting conversations.</P>
-
-        <H3>Build your referral network</H3>
-        <P>Start reaching out to engineers at companies you want to work at. Coffee chats, informational interviews, LinkedIn messages. The relationships you build sophomore year become the referrals you use in junior year recruiting. See the <Link href="/college/internships" className="font-semibold text-[#1A1A2E] underline underline-offset-2 hover:text-[#F4A825] transition-colors">Internships guide</Link> for how to do this effectively.</P>
-
-        <H2>Junior Year — The Critical Summer</H2>
-        <P>This is the year that determines where you start after graduation. Every engineer we studied had an internship the summer after junior year. In almost every case, that internship led directly to a full-time offer.</P>
-
-        <H3>Applications open in August. Apply the day a role posts.</H3>
-        <P>Top tech companies — Google, Meta, Amazon, Microsoft, Apple, Stripe, Airbnb — close their junior internship applications in October or November for the following summer. Some close sooner. Have your resume finalized before school starts. Have your referrals lined up. When a role opens, apply within 24 hours.</P>
-
-        <H3>LeetCode target: 150+ problems minimum</H3>
-        <P>Medium difficulty, patterns over memorization. The technical interview at a top company will test your ability to recognize problem types and apply algorithms cleanly. Practice until a dynamic programming or graph problem doesn't feel unfamiliar — it feels like a category you've seen before.</P>
-        <P>See the full interview prep guide on the <Link href="/careers/software-engineering/interviews" className="font-semibold text-[#1A1A2E] underline underline-offset-2 hover:text-[#F4A825] transition-colors">Interviews page</Link>.</P>
-
-        <H3>Use your referral network</H3>
-        <P>The coffee chats and informational interviews from sophomore year matter now. Reach out to your contacts when roles open. A referral from someone inside the company dramatically increases the likelihood of getting an interview. Maintain the relationships before you need the favor.</P>
-
-        <H3>Target the team, not just the company</H3>
-        <P>It's much harder to switch teams as a new grad than to pick the right team at the intern stage. Research the teams you're interviewing for. Know what they work on. Ask about the team in your interviews. The first team you're on shapes your trajectory more than the company name.</P>
-
-        <Note>
-          If junior summer doesn't go as planned: don't let it be blank. Build a meaningful project, contribute to open source, find a startup internship. Arrive at senior year with something real to talk about regardless of where it came from.
-        </Note>
-
-        <H2>Senior Year — Execute</H2>
-        <P>If you got a return offer from junior summer: evaluate the team, the comp, and the growth potential carefully before you accept. Your first team shapes your career more than the company name. Then finish strong and start well.</P>
-
-        <P>If you didn't get a return offer: recruit broadly in September and October for full-time SWE roles. Your junior year internship experience plus your projects plus your GPA are still strong signals. Apply to companies of all sizes — startup to enterprise. Cast a wide net.</P>
-
-        <H3>The Master's as a path corrector</H3>
-        <P>If your recruiting didn't go the way you wanted, a strong Master's program resets your pipeline access. Georgia Tech OMSCS, Carnegie Mellon, Stanford, UIUC, and UT Austin all have strong recruiting relationships with top companies. The MS is not required — but it's a real option if undergrad recruiting didn't land where you wanted.</P>
-
-        <H3>Non-linear paths work</H3>
-        <P>Some engineers went Capital One → Twitter → Meta over three years. Others started at a mid-size company or a regional firm and moved to a top tech company two years in. These lateral moves are common and legitimate — you don't have to land Google on the first try. Every step builds the next one. The path is not a single gate — it's a series of doors, each one opened by what you did before it.</P>
-
-        <H2>What to avoid</H2>
-        <ul className="list-disc list-inside space-y-2 text-sm text-[#374151] mb-6 ml-2">
-          <li><strong>Joining 10 clubs shallowly.</strong> One club where you lead something is worth more than ten clubs where you showed up twice. Depth signals commitment. Breadth without depth signals nothing.</li>
-          <li><strong>Waiting until junior or senior year to start coding seriously.</strong> Technical skill takes time to build. The students who do well in interviews started writing code years before the interview happened.</li>
-          <li><strong>Only applying to your dream companies.</strong> Apply broadly. A startup internship junior year is infinitely better than no internship. You can always move up — you can't un-lose a summer.</li>
-          <li><strong>Treating LeetCode as something you can cram.</strong> You can't. 150+ problems over 18 months beats 150 problems in a 3-week sprint every time. Start early.</li>
-          <li><strong>Disappearing after coffee chats.</strong> The referral value of a contact comes from the relationship. Follow up, update people on how applications went, keep the relationship warm. These are the people who will go to bat for you.</li>
-        </ul>
-
-        <div className="mt-12 flex flex-col sm:flex-row gap-3">
-          <Link
-            href="/careers/software-engineering/programs"
-            className="inline-flex items-center gap-2 px-5 py-3 bg-[#1A1A2E] text-[#FAFAF7] text-sm font-semibold rounded-lg hover:bg-[#F4A825] hover:text-[#0D0D0D] transition-colors cursor-pointer"
-          >
-            Key Programs & Fellowships <ArrowRight size={14} />
-          </Link>
-          <Link
-            href="/careers/software-engineering/interviews"
-            className="inline-flex items-center gap-2 px-5 py-3 border border-[#E5E5E0] text-[#0D0D0D] text-sm font-semibold rounded-lg hover:border-[#1A1A2E] transition-colors cursor-pointer"
-          >
-            Interview Prep Guide <ArrowRight size={14} />
-          </Link>
-        </div>
-      </section>
-    </>
+      {/* Nav */}
+      <div className="mt-12 flex flex-col sm:flex-row gap-3">
+        <Link href="/careers/software-engineering/programs" className="inline-flex items-center gap-2 px-5 py-3 bg-[#1A1A2E] text-[#FAFAF7] text-sm font-semibold rounded-lg hover:bg-[#F4A825] hover:text-[#0D0D0D] transition-colors cursor-pointer">
+          Key Programs & Fellowships <ArrowRight size={14} />
+        </Link>
+        <Link href="/careers/software-engineering/interviews" className="inline-flex items-center gap-2 px-5 py-3 border border-[#E5E5E0] text-[#0D0D0D] text-sm font-semibold rounded-lg hover:border-[#1A1A2E] transition-colors cursor-pointer">
+          Interview Prep Guide <ArrowRight size={14} />
+        </Link>
+      </div>
+    </div>
   );
 }
