@@ -115,38 +115,39 @@ export default function HomePage() {
           <ArrowDown size={20} />
         </div>
 
-        {/* 02 — College (coming soon) */}
-        <div className="relative border border-[#E5E5E0] rounded-2xl p-8 bg-[#FAFAF7] opacity-60">
+        {/* 02 — College */}
+        <Link href="/college" className="relative border border-[#E5E5E0] rounded-2xl p-8 bg-[#FAFAF7] hover:border-[#0D0D0D] hover:shadow-md transition-all cursor-pointer block group">
           <div className="flex items-start justify-between mb-6">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#E5E5E0] rounded-md flex items-center justify-center">
-                <span className="text-[#9CA3AF] font-bold text-xs">02</span>
+              <div className="w-8 h-8 bg-[#1A1A2E] rounded-md flex items-center justify-center">
+                <span className="text-white font-bold text-xs">02</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-xs font-semibold uppercase tracking-widest text-[#9CA3AF]">College</span>
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-[#9CA3AF] bg-[#E5E5E0] border border-[#D4D4D0] px-2 py-0.5 rounded-full">Loading</span>
+                <span className="text-xs font-semibold uppercase tracking-widest text-[#1A1A2E]">College</span>
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-[#1B4332] bg-[#D1FAE5] border border-[#6EE7B7] px-2 py-0.5 rounded-full">Live</span>
               </div>
             </div>
             <span className="text-[#F0F0EC] font-bold text-6xl leading-none select-none" style={{ fontFamily: "'Libre Bodoni', serif" }}>02</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#6B6B6B] mb-3" style={{ fontFamily: "'Libre Bodoni', serif" }}>
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#0D0D0D] mb-3" style={{ fontFamily: "'Libre Bodoni', serif" }}>
             Navigate college life.
           </h2>
-          <p className="text-[#9CA3AF] text-sm leading-relaxed mb-6 max-w-lg">
+          <p className="text-[#6B6B6B] text-sm leading-relaxed mb-6 max-w-lg">
             Internships, clubs, networking, mental health, studying abroad, and making the most of four years. A guide for once you&apos;re in.
           </p>
 
           <div className="flex flex-wrap gap-2 mb-8">
             {collegeTags.map((tag) => (
-              <span key={tag} className="text-xs text-[#9CA3AF] border border-[#E5E5E0] px-3 py-1 rounded-full">{tag}</span>
+              <span key={tag} className="text-xs text-[#6B6B6B] border border-[#E5E5E0] px-3 py-1 rounded-full">{tag}</span>
             ))}
           </div>
 
-          <span className="inline-flex items-center gap-2 px-5 py-2.5 border border-[#E5E5E0] text-[#9CA3AF] text-sm font-semibold rounded-md cursor-not-allowed">
-            Coming soon
+          <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#1A1A2E] text-[#FAFAF7] text-sm font-semibold rounded-md group-hover:bg-[#F4A825] group-hover:text-[#0D0D0D] transition-colors">
+            Explore the College Guide
+            <ArrowRight size={14} />
           </span>
-        </div>
+        </Link>
 
         {/* Connector */}
         <div className="flex justify-center py-1 text-[#D4D4D0]">
