@@ -13,14 +13,25 @@ const pmLinks = [
   { href: "/careers/resources", label: "Resources" },
 ];
 
+const sweLinks = [
+  { href: "/careers/software-engineering", label: "What is SWE?" },
+  { href: "/careers/software-engineering/roadmap", label: "Roadmap" },
+  { href: "/careers/software-engineering/programs", label: "Programs" },
+  { href: "/careers/software-engineering/clubs", label: "Clubs & Projects" },
+  { href: "/careers/software-engineering/interviews", label: "Interview Prep" },
+  { href: "/careers/resources", label: "Resources" },
+];
+
 const pmPaths = ["/careers/product-management", "/careers/roadmap", "/careers/prep", "/careers/interviews", "/careers/starter-project", "/careers/resources"];
+const swePaths = ["/careers/software-engineering"];
 
 export default function CareerNavbar() {
   const pathname = usePathname();
 
   const isCareersHub = pathname === "/careers";
   const isPM = pmPaths.some((p) => pathname === p || pathname.startsWith(p + "/"));
-  const navLinks = isPM ? pmLinks : [];
+  const isSWE = swePaths.some((p) => pathname === p || pathname.startsWith(p + "/"));
+  const navLinks = isPM ? pmLinks : isSWE ? sweLinks : [];
 
   return (
     <header className="sticky top-0 z-50 bg-[#FAFAF7]/95 backdrop-blur-sm border-b border-[#E5E5E0]">
@@ -45,6 +56,11 @@ export default function CareerNavbar() {
                 Product Management
               </span>
             )}
+            {isSWE && (
+              <span className="hidden sm:inline-flex items-center gap-1 text-xs font-semibold text-[#1A1A2E] bg-[#EEF2FF] px-2 py-0.5 rounded-full border border-[#1A1A2E]/20">
+                Software Engineering
+              </span>
+            )}
           </div>
 
           {navLinks.length > 0 && (
@@ -56,7 +72,7 @@ export default function CareerNavbar() {
                   className={clsx(
                     "px-3 py-1.5 rounded text-sm font-medium transition-colors duration-150 cursor-pointer",
                     pathname === link.href
-                      ? "bg-[#FDF8EC] text-[#C4841A]"
+                      ? isSWE ? "bg-[#EEF2FF] text-[#1A1A2E]" : "bg-[#FDF8EC] text-[#C4841A]"
                       : "text-[#6B6B6B] hover:text-[#0D0D0D] hover:bg-[#0D0D0D]/5"
                   )}
                 >
@@ -73,6 +89,13 @@ export default function CareerNavbar() {
                 className="hidden sm:inline-flex items-center px-4 py-2 bg-[#F4A825] text-[#0D0D0D] text-sm font-semibold rounded-md hover:bg-[#C4841A] transition-colors duration-150 cursor-pointer"
               >
                 Start with PM
+              </Link>
+            ) : isSWE ? (
+              <Link
+                href="/careers/software-engineering/roadmap"
+                className="hidden sm:inline-flex items-center px-4 py-2 bg-[#1A1A2E] text-[#FAFAF7] text-sm font-semibold rounded-md hover:bg-[#F4A825] hover:text-[#0D0D0D] transition-colors duration-150 cursor-pointer"
+              >
+                Start here
               </Link>
             ) : (
               <Link
