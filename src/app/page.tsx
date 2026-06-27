@@ -3,7 +3,7 @@ import { ArrowRight, ArrowDown } from "lucide-react";
 import SiteHamburger from "@/components/SiteHamburger";
 
 const highSchoolTags = ["Why College", "Which College", "Timeline", "Applications", "Extracurriculars", "Financial Aid"];
-const collegeTags = ["First Year Survival", "Finding Your Path", "Internships", "Campus Life", "Mental Health", "Graduating Strong"];
+const collegeTags = ["The Guide", "Summer Internships", "Clubs & Projects", "General Tips", "Resources"];
 const careerTags = ["Product Management", "Software Engineering", "Consulting", "Finance & IB", "UX Design", "Data Science"];
 
 function HomeNavbar() {
