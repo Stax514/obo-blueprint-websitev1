@@ -13,6 +13,14 @@ const highSchoolLinks = [
   { href: "/high-school/financial-aid", label: "Financial Aid" },
 ];
 
+const collegeLinks = [
+  { href: "/college/guide", label: "The Guide" },
+  { href: "/college/internships", label: "Summer Internships" },
+  { href: "/college/clubs-and-projects", label: "Clubs & Projects" },
+  { href: "/college/general-tips", label: "General Tips" },
+  { href: "/college/resources", label: "Resources" },
+];
+
 const careerLinks = [
   { href: "/careers/product-management", label: "Product Management" },
   { href: null, label: "Software Engineering" },
@@ -153,7 +161,7 @@ export default function SiteHamburger() {
             </Link>
 
             <SectionDropdown label="High School" href="/high-school" links={highSchoolLinks} onClose={() => setOpen(false)} />
-            <SectionDropdown label="College" href={null} links={[]} comingSoon onClose={() => setOpen(false)} />
+            <SectionDropdown label="College" href="/college" links={collegeLinks} onClose={() => setOpen(false)} />
             <SectionDropdown label="Careers" href="/careers" links={careerLinks} onClose={() => setOpen(false)} />
           </nav>
         </div>
