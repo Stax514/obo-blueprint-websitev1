@@ -5,6 +5,7 @@ import SiteHamburger from "@/components/SiteHamburger";
 const highSchoolTags = ["Why College", "Which College", "Timeline", "Applications", "Extracurriculars", "Financial Aid"];
 const collegeTags = ["The Guide", "Summer Internships", "Clubs & Projects", "General Tips", "Resources"];
 const careerTags = ["Product Management", "Software Engineering", "Consulting", "Investment Banking", "UX Design", "Data Science"];
+const makeMoneyTags = ["The 5 Tiers", "Sports Reality Check", "Music Industry Math", "Wealth Probability"];
 
 function HomeNavbar() {
   return (
@@ -190,6 +191,45 @@ export default function HomePage() {
             <ArrowRight size={15} />
           </Link>
         </div>
+
+        {/* Connector */}
+        <div className="flex justify-center py-1 text-[#D4D4D0]">
+          <ArrowDown size={20} />
+        </div>
+
+        {/* 04 — Make Money */}
+        <Link href="/make-money" className="relative border border-[#065F46] rounded-2xl p-8 bg-[#FAFAF7] hover:border-[#065F46] hover:shadow-md transition-all cursor-pointer block group">
+          <div className="flex items-start justify-between mb-6">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 bg-[#065F46] rounded-md flex items-center justify-center">
+                <span className="text-white font-bold text-xs">04</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-semibold uppercase tracking-widest text-[#065F46]">Make Money</span>
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-[#1B4332] bg-[#D1FAE5] border border-[#6EE7B7] px-2 py-0.5 rounded-full">Live</span>
+              </div>
+            </div>
+            <span className="text-[#F0F0EC] font-bold text-6xl leading-none select-none" style={{ fontFamily: "'Libre Bodoni', serif" }}>04</span>
+          </div>
+
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#0D0D0D] mb-3" style={{ fontFamily: "'Libre Bodoni', serif" }}>
+            Clarity on how to actually get rich.
+          </h2>
+          <p className="text-[#6B6B6B] text-sm leading-relaxed mb-6 max-w-lg">
+            Most kids think the path to wealth is the NBA or NFL. It&apos;s not. The real money is made through college — and some careers pay more than most athletes ever see, with a fraction of the risk.
+          </p>
+
+          <div className="flex flex-wrap gap-2 mb-8">
+            {makeMoneyTags.map((tag) => (
+              <span key={tag} className="text-xs text-[#065F46] border border-[#065F46]/30 px-3 py-1 rounded-full">{tag}</span>
+            ))}
+          </div>
+
+          <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#065F46] text-[#FAFAF7] text-sm font-semibold rounded-md group-hover:bg-[#4ADE80] group-hover:text-[#0D0D0D] transition-colors">
+            See the breakdown
+            <ArrowRight size={14} />
+          </span>
+        </Link>
 
       </section>
     </>
