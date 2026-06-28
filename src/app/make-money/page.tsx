@@ -54,7 +54,7 @@ export default function MakeMoneyPage() {
             <span className="text-[#4ADE80] italic">And the misconceptions on how to actually get rich.</span>
           </h1>
           <p className="text-[#A0A0A0] text-lg max-w-2xl mb-8">
-            Most income comparisons ask the wrong question. A career can have a spectacular ceiling and a near-zero probability of reaching it — making it a statistically terrible financial bet regardless of the headline number. This guide asks the better question.
+            A lot of kids grow up thinking the path to getting rich is the NBA or NFL. It&apos;s not. The real money is made through college — and some of those careers pay more than most athletes ever see, with a fraction of the risk. This guide breaks down what each path actually pays and what the odds really look like.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/make-money/tiers" className="inline-flex items-center gap-2 px-5 py-3 bg-[#4ADE80] text-[#0D0D0D] text-sm font-semibold rounded-lg hover:bg-white transition-colors cursor-pointer">
