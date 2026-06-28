@@ -21,6 +21,13 @@ const collegeLinks = [
   { href: "/college/resources", label: "Resources" },
 ];
 
+const makeMoneyLinks = [
+  { href: "/make-money", label: "Overview" },
+  { href: "/make-money/tiers", label: "The 5 Tiers" },
+  { href: "/make-money/sports", label: "Sports" },
+  { href: "/make-money/music", label: "Music" },
+];
+
 const careerLinks = [
   { href: "/careers/product-management", label: "Product Management" },
   { href: "/careers/software-engineering", label: "Software Engineering" },
@@ -164,6 +171,7 @@ export default function SiteHamburger() {
             <SectionDropdown label="High School" href="/high-school" links={highSchoolLinks} onClose={() => setOpen(false)} />
             <SectionDropdown label="College" href="/college" links={collegeLinks} onClose={() => setOpen(false)} />
             <SectionDropdown label="Careers" href="/careers" links={careerLinks} onClose={() => setOpen(false)} />
+            <SectionDropdown label="Make Money" href="/make-money" links={makeMoneyLinks} onClose={() => setOpen(false)} />
           </nav>
         </div>
       )}
