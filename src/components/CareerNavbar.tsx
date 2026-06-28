@@ -90,7 +90,7 @@ export default function CareerNavbar() {
             )}
             {isFinance && (
               <span className="hidden sm:inline-flex items-center gap-1 text-xs font-semibold text-[#7C2D12] bg-[#FFF7ED] px-2 py-0.5 rounded-full border border-[#7C2D12]/20">
-                Finance & IB
+                Investment Banking
               </span>
             )}
           </div>

@@ -48,9 +48,9 @@ export default function CareerFooter() {
                   High School Guide
                 </Link>
               </li>
-              <li><span className="text-[#4B5563] text-sm">Software Engineering — coming soon</span></li>
-              <li><span className="text-[#4B5563] text-sm">Consulting — coming soon</span></li>
-              <li><span className="text-[#4B5563] text-sm">Finance & IB — coming soon</span></li>
+              <li><Link href="/careers/software-engineering" className="text-[#9CA3AF] hover:text-[#FAFAF7] text-sm transition-colors cursor-pointer">Software Engineering</Link></li>
+              <li><Link href="/careers/consulting" className="text-[#9CA3AF] hover:text-[#FAFAF7] text-sm transition-colors cursor-pointer">Consulting</Link></li>
+              <li><Link href="/careers/finance" className="text-[#9CA3AF] hover:text-[#FAFAF7] text-sm transition-colors cursor-pointer">Investment Banking</Link></li>
             </ul>
           </div>
         </div>

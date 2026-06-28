@@ -54,7 +54,7 @@ export default function FinancePage() {
         <div className="max-w-4xl mx-auto">
           <Link href="/careers" className="text-xs font-semibold text-[#6B6B6B] hover:text-[#FAFAF7] transition-colors">← All careers</Link>
           <div className="mt-6 mb-2">
-            <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#FAFAF7] bg-[#7C2D12] px-2 py-0.5 rounded-full">● Finance & IB</span>
+            <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#FAFAF7] bg-[#7C2D12] px-2 py-0.5 rounded-full">● Investment Banking</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold mt-4 mb-6 leading-tight" style={{ fontFamily: "'Libre Bodoni', serif" }}>
             The complete guide to<br />

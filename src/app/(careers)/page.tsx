@@ -40,7 +40,7 @@ const stages = [
     label: "Careers",
     headline: "Break into the career you want.",
     desc: "Roadmaps, interview frameworks, and resume templates for every field. Product Management is live — more tracks coming.",
-    inside: ["Product Management", "Software Engineering", "Consulting", "Finance & IB", "UX Design", "Data Science"],
+    inside: ["Product Management", "Software Engineering", "Consulting", "Investment Banking", "UX Design", "Data Science"],
     status: "live" as const,
     href: "/careers",
     cta: "Enter Career Guide",

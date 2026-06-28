@@ -46,7 +46,7 @@ const tracks = [
   },
   {
     id: "finance",
-    label: "Finance & IB",
+    label: "Investment Banking",
     tagline: "Break into Goldman, JPMorgan, and Morgan Stanley.",
     desc: "Year-by-year roadmap, diversity programs, technical interview prep, and the recruiting timeline. Everything from freshman year to your first bulge bracket offer.",
     inside: ["Year-by-Year Roadmap", "ABP & Early Programs", "Clubs & Activities", "Technical Interview Guide", "LBO & Valuation Prep", "Resources"],

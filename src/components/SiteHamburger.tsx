@@ -25,7 +25,7 @@ const careerLinks = [
   { href: "/careers/product-management", label: "Product Management" },
   { href: "/careers/software-engineering", label: "Software Engineering" },
   { href: "/careers/consulting", label: "Consulting" },
-  { href: "/careers/finance", label: "Finance & IB" },
+  { href: "/careers/finance", label: "Investment Banking" },
   { href: null, label: "UX Design" },
   { href: null, label: "Data Science" },
 ];
