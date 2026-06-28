@@ -141,7 +141,7 @@ export default function ConsultingRoadmapPage() {
         <Step
           num="2"
           title="Case prep target: 50+ cases, 100+ for competitive candidates."
-          body="Quality over quantity — get real feedback on every case. Lydia's timeline: 6 weeks of intensive casing, Management Consulted platform, video examples first then live partner practice. That was on top of a foundation built sophomore year."
+          body="Quality over quantity — get real feedback on every case. A proven timeline: 6 weeks of intensive casing, Management Consulted platform, video examples first then live partner practice — built on top of a foundation started sophomore year."
           bullets={["Round 1: 2 case interviews + PEI (Personal Experience Interview)", "Round 2 (Final): 3–4 case interviews in one day with partners and senior leaders", "See the full Case Interview Guide for what to study"]}
         />
         <Step

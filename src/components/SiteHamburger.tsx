@@ -26,6 +26,7 @@ const careerLinks = [
   { href: "/careers/software-engineering", label: "Software Engineering" },
   { href: "/careers/consulting", label: "Consulting" },
   { href: "/careers/finance", label: "Investment Banking" },
+  { href: "/careers/lawyer", label: "Lawyer" },
   { href: null, label: "UX Design" },
   { href: null, label: "Data Science" },
 ];

@@ -59,6 +59,20 @@ const tracks = [
     num: "04",
   },
   {
+    id: "lawyer",
+    label: "Lawyer",
+    tagline: "Get into law school. Get a law job.",
+    desc: "Two complete guides in one: getting into law school (roadmap, LSAT, pipeline programs) and what to do in law school to land the job you want (BigLaw, clerkships, public interest, government, in-house).",
+    inside: ["Law School Roadmap", "LSAT Prep Guide", "Pipeline Programs", "BigLaw & OCI", "Clerkships", "Public Interest"],
+    status: "live" as const,
+    href: "/careers/lawyer",
+    accent: "bg-[#1E3A5F]",
+    accentText: "text-[#1E3A5F]",
+    accentBg: "bg-[#EFF6FF]",
+    numColor: "text-[#1E3A5F]/8",
+    num: "05",
+  },
+  {
     id: "ux-design",
     label: "UX Design",
     tagline: "Build a portfolio that gets you hired.",
@@ -70,7 +84,7 @@ const tracks = [
     accentText: "text-[#6B6B6B]",
     accentBg: "bg-[#F5F5F0]",
     numColor: "text-[#0D0D0D]/6",
-    num: "05",
+    num: "06",
   },
   {
     id: "data-science",
@@ -84,7 +98,7 @@ const tracks = [
     accentText: "text-[#6B6B6B]",
     accentBg: "bg-[#F5F5F0]",
     numColor: "text-[#0D0D0D]/6",
-    num: "06",
+    num: "07",
   },
 ];
 
@@ -184,25 +198,6 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <div className="bg-[#0D0D0D] rounded-xl p-8 text-[#FAFAF7] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div>
-            <h2 className="text-lg font-bold mb-2" style={{ fontFamily: "'Libre Bodoni', serif" }}>
-              Start with Product Management.
-            </h2>
-            <p className="text-[#9CA3AF] text-sm leading-relaxed max-w-xl">
-              The most complete guide on the site. Six sections, a full 10-week prep calendar, and every interview framework you need.
-            </p>
-          </div>
-          <Link
-            href="/careers/product-management"
-            className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-[#F4A825] text-[#0D0D0D] text-sm font-semibold rounded-lg hover:bg-[#C4841A] transition-colors"
-          >
-            Enter PM Guide <ArrowRight size={15} />
-          </Link>
-        </div>
-      </section>
     </>
   );
 }

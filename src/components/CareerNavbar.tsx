@@ -41,9 +41,35 @@ const financeLinks = [
   { href: "/careers/finance/resources", label: "Resources" },
 ];
 
+const lawyerHubLinks = [
+  { href: "/careers/law-school", label: "Getting into Law School" },
+  { href: "/careers/law-career", label: "Getting a Law Job" },
+];
+
+const lawSchoolLinks = [
+  { href: "/careers/law-school", label: "What is Law School?" },
+  { href: "/careers/law-school/roadmap", label: "Roadmap" },
+  { href: "/careers/law-school/programs", label: "Programs" },
+  { href: "/careers/law-school/clubs", label: "Clubs & Activities" },
+  { href: "/careers/law-school/lsat", label: "LSAT Prep" },
+  { href: "/careers/law-school/resources", label: "Resources" },
+];
+
+const lawCareerLinks = [
+  { href: "/careers/law-career", label: "The 5 Paths" },
+  { href: "/careers/law-career/biglaw", label: "BigLaw" },
+  { href: "/careers/law-career/clerkships", label: "Clerkships" },
+  { href: "/careers/law-career/government", label: "Government" },
+  { href: "/careers/law-career/public-interest", label: "Public Interest" },
+  { href: "/careers/law-career/in-house", label: "In-House" },
+];
+
 const swePaths = ["/careers/software-engineering"];
 const consultingPaths = ["/careers/consulting"];
 const financePaths = ["/careers/finance"];
+const lawSchoolPaths = ["/careers/law-school"];
+const lawyerHubPaths = ["/careers/lawyer"];
+const lawCareerPaths = ["/careers/law-career", "/careers/law-career/biglaw", "/careers/law-career/clerkships", "/careers/law-career/government", "/careers/law-career/public-interest", "/careers/law-career/in-house"];
 
 export default function CareerNavbar() {
   const pathname = usePathname();
@@ -53,7 +79,11 @@ export default function CareerNavbar() {
   const isSWE = swePaths.some((p) => pathname === p || pathname.startsWith(p + "/"));
   const isConsulting = consultingPaths.some((p) => pathname === p || pathname.startsWith(p + "/"));
   const isFinance = financePaths.some((p) => pathname === p || pathname.startsWith(p + "/"));
-  const navLinks = isPM ? pmLinks : isSWE ? sweLinks : isConsulting ? consultingLinks : isFinance ? financeLinks : [];
+  const isLawSchool = lawSchoolPaths.some((p) => pathname === p || pathname.startsWith(p + "/"));
+  const isLawyerHub = lawyerHubPaths.some((p) => pathname === p);
+  const isLawCareer = lawCareerPaths.some((p) => pathname === p || pathname.startsWith(p + "/"));
+  const isLawyer = isLawyerHub || isLawSchool || isLawCareer;
+  const navLinks = isPM ? pmLinks : isSWE ? sweLinks : isConsulting ? consultingLinks : isFinance ? financeLinks : isLawyerHub ? lawyerHubLinks : isLawSchool ? lawSchoolLinks : isLawCareer ? lawCareerLinks : [];
 
   return (
     <header className="sticky top-0 z-50 bg-[#FAFAF7]/95 backdrop-blur-sm border-b border-[#E5E5E0]">
@@ -93,6 +123,11 @@ export default function CareerNavbar() {
                 Investment Banking
               </span>
             )}
+            {isLawyer && (
+              <span className="hidden sm:inline-flex items-center gap-1 text-xs font-semibold text-[#1E3A5F] bg-[#EFF6FF] px-2 py-0.5 rounded-full border border-[#1E3A5F]/20">
+                Lawyer
+              </span>
+            )}
           </div>
 
           {navLinks.length > 0 && (
@@ -104,7 +139,7 @@ export default function CareerNavbar() {
                   className={clsx(
                     "px-3 py-1.5 rounded text-sm font-medium transition-colors duration-150 cursor-pointer",
                     pathname === link.href
-                      ? isSWE ? "bg-[#EEF2FF] text-[#1A1A2E]" : isConsulting ? "bg-[#F0FDF4] text-[#1B4332]" : isFinance ? "bg-[#FFF7ED] text-[#7C2D12]" : "bg-[#FDF8EC] text-[#C4841A]"
+                      ? isSWE ? "bg-[#EEF2FF] text-[#1A1A2E]" : isConsulting ? "bg-[#F0FDF4] text-[#1B4332]" : isFinance ? "bg-[#FFF7ED] text-[#7C2D12]" : isLawyer ? "bg-[#EFF6FF] text-[#1E3A5F]" : "bg-[#FDF8EC] text-[#C4841A]"
                       : "text-[#6B6B6B] hover:text-[#0D0D0D] hover:bg-[#0D0D0D]/5"
                   )}
                 >

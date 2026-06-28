@@ -51,6 +51,7 @@ export default function CareerFooter() {
               <li><Link href="/careers/software-engineering" className="text-[#9CA3AF] hover:text-[#FAFAF7] text-sm transition-colors cursor-pointer">Software Engineering</Link></li>
               <li><Link href="/careers/consulting" className="text-[#9CA3AF] hover:text-[#FAFAF7] text-sm transition-colors cursor-pointer">Consulting</Link></li>
               <li><Link href="/careers/finance" className="text-[#9CA3AF] hover:text-[#FAFAF7] text-sm transition-colors cursor-pointer">Investment Banking</Link></li>
+              <li><Link href="/careers/lawyer" className="text-[#9CA3AF] hover:text-[#FAFAF7] text-sm transition-colors cursor-pointer">Lawyer</Link></li>
             </ul>
           </div>
         </div>

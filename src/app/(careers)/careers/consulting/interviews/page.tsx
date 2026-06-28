@@ -108,7 +108,7 @@ export default function ConsultingInterviewsPage() {
         <div className="bg-[#F5F5F0] border border-[#E5E5E0] rounded-xl p-6">
           <p className="text-xs font-semibold uppercase tracking-widest text-[#9CA3AF] mb-3">Target: 50–100+ cases</p>
           <p className="text-sm text-[#6B6B6B] leading-relaxed mb-3">50 cases minimum to be competitive. 100+ for top candidates at McKinsey and BCG. Quality over quantity — get real feedback on every case, not just reps.</p>
-          <p className="text-sm text-[#6B6B6B] leading-relaxed">Lydia Melka-White's preparation: 6 weeks of intensive casing using the Management Consulted platform, starting with video examples to build instinct, then live partner practice. That was built on a foundation started sophomore year.</p>
+          <p className="text-sm text-[#6B6B6B] leading-relaxed">A proven prep timeline: 6 weeks of intensive casing using the Management Consulted platform, starting with video examples to build instinct, then live partner practice — built on a foundation started sophomore year.</p>
         </div>
         <div className="bg-[#F5F5F0] border border-[#E5E5E0] rounded-xl p-6">
           <p className="text-xs font-semibold uppercase tracking-widest text-[#9CA3AF] mb-3">Resources</p>
