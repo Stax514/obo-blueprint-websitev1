@@ -50,8 +50,8 @@ export default function MakeMoneyPage() {
             <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#FAFAF7] bg-[#065F46] px-2 py-0.5 rounded-full">● Make Money</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold mt-4 mb-6 leading-tight" style={{ fontFamily: "'Libre Bodoni', serif" }}>
-            Most people don&apos;t know how to get rich.<br />
-            <span className="text-[#4ADE80] italic">Now you will.</span>
+            Clarity on how much each path pays.<br />
+            <span className="text-[#4ADE80] italic">And the misconceptions on how to actually get rich.</span>
           </h1>
           <p className="text-[#A0A0A0] text-lg max-w-2xl mb-8">
             Most income comparisons ask the wrong question. A career can have a spectacular ceiling and a near-zero probability of reaching it — making it a statistically terrible financial bet regardless of the headline number. This guide asks the better question.
