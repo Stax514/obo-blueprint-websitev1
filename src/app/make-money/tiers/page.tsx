@@ -50,7 +50,7 @@ const tiers = [
   {
     label: "Tier 1 — Any College Degree",
     desc: "Any major, any school (including community college → 4-year transfer). The credential matters most at this tier — not the subject.",
-    insight: "Even the "weakest" college degree puts you on a career track with employer credibility, higher starting income, and compounding salary growth. Over 30 years, that gap versus no credential is enormous.",
+    insight: 'Even the "weakest" college degree puts you on a career track with employer credibility, higher starting income, and compounding salary growth. Over 30 years, that gap versus no credential is enormous.',
     rows: [
       { path: "Any bachelor's degree", age: "50–62", prob: "~48%", notes: "General career trajectory; compounding over 30 years" },
       { path: "Liberal arts / humanities", age: "52–62", prob: "~42%", notes: "Lower starting salary; still achievable with discipline" },
@@ -74,7 +74,7 @@ const tiers = [
   {
     label: "Tier 3 — Elite Professional Path",
     desc: "Requires the right school, preparation, and execution — but dramatically accelerates the timeline.",
-    insight: "This is what makes Tier 3 especially valuable: even the "failure" cases are financially solid. A BigLaw associate who burns out and leaves for an in-house role earns $150–$300K. An IB analyst who leaves after 2 years lands in corporate finance at $120–$200K. The floor of Tier 3 is often higher than the ceiling of Tier 1.",
+    insight: 'This is what makes Tier 3 especially valuable: even the "failure" cases are financially solid. A BigLaw associate who burns out and leaves for an in-house role earns $150–$300K. An IB analyst who leaves after 2 years lands in corporate finance at $120–$200K. The floor of Tier 3 is often higher than the ceiling of Tier 1.',
     rows: [
       { path: "Private Equity / Hedge Fund", age: "27–31", prob: "~88%", notes: "Carry and bonus concentrates wealth fastest" },
       { path: "Investment Banking (BB/EB)", age: "28–32", prob: "~85%", notes: "Save $100K+/yr starting year 1; compounds fast" },
