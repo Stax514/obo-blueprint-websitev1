@@ -32,8 +32,18 @@ const consultingLinks = [
   { href: "/careers/consulting/resources", label: "Resources" },
 ];
 
+const financeLinks = [
+  { href: "/careers/finance", label: "What is IB?" },
+  { href: "/careers/finance/roadmap", label: "Roadmap" },
+  { href: "/careers/finance/programs", label: "Programs" },
+  { href: "/careers/finance/clubs", label: "Clubs & Activities" },
+  { href: "/careers/finance/interviews", label: "Technical Interviews" },
+  { href: "/careers/finance/resources", label: "Resources" },
+];
+
 const swePaths = ["/careers/software-engineering"];
 const consultingPaths = ["/careers/consulting"];
+const financePaths = ["/careers/finance"];
 
 export default function CareerNavbar() {
   const pathname = usePathname();
@@ -42,7 +52,8 @@ export default function CareerNavbar() {
   const isPM = pmPaths.some((p) => pathname === p || pathname.startsWith(p + "/"));
   const isSWE = swePaths.some((p) => pathname === p || pathname.startsWith(p + "/"));
   const isConsulting = consultingPaths.some((p) => pathname === p || pathname.startsWith(p + "/"));
-  const navLinks = isPM ? pmLinks : isSWE ? sweLinks : isConsulting ? consultingLinks : [];
+  const isFinance = financePaths.some((p) => pathname === p || pathname.startsWith(p + "/"));
+  const navLinks = isPM ? pmLinks : isSWE ? sweLinks : isConsulting ? consultingLinks : isFinance ? financeLinks : [];
 
   return (
     <header className="sticky top-0 z-50 bg-[#FAFAF7]/95 backdrop-blur-sm border-b border-[#E5E5E0]">
@@ -77,6 +88,11 @@ export default function CareerNavbar() {
                 Consulting
               </span>
             )}
+            {isFinance && (
+              <span className="hidden sm:inline-flex items-center gap-1 text-xs font-semibold text-[#7C2D12] bg-[#FFF7ED] px-2 py-0.5 rounded-full border border-[#7C2D12]/20">
+                Finance & IB
+              </span>
+            )}
           </div>
 
           {navLinks.length > 0 && (
@@ -88,7 +104,7 @@ export default function CareerNavbar() {
                   className={clsx(
                     "px-3 py-1.5 rounded text-sm font-medium transition-colors duration-150 cursor-pointer",
                     pathname === link.href
-                      ? isSWE ? "bg-[#EEF2FF] text-[#1A1A2E]" : isConsulting ? "bg-[#F0FDF4] text-[#1B4332]" : "bg-[#FDF8EC] text-[#C4841A]"
+                      ? isSWE ? "bg-[#EEF2FF] text-[#1A1A2E]" : isConsulting ? "bg-[#F0FDF4] text-[#1B4332]" : isFinance ? "bg-[#FFF7ED] text-[#7C2D12]" : "bg-[#FDF8EC] text-[#C4841A]"
                       : "text-[#6B6B6B] hover:text-[#0D0D0D] hover:bg-[#0D0D0D]/5"
                   )}
                 >
