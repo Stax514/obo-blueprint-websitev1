@@ -19,11 +19,21 @@ const sweLinks = [
   { href: "/careers/software-engineering/programs", label: "Programs" },
   { href: "/careers/software-engineering/clubs", label: "Clubs & Projects" },
   { href: "/careers/software-engineering/interviews", label: "Interview Prep" },
-  { href: "/careers/resources", label: "Resources" },
+  { href: "/careers/software-engineering/resources", label: "Resources" },
 ];
 
 const pmPaths = ["/careers/product-management", "/careers/roadmap", "/careers/prep", "/careers/interviews", "/careers/starter-project", "/careers/resources"];
+const consultingLinks = [
+  { href: "/careers/consulting", label: "What is Consulting?" },
+  { href: "/careers/consulting/roadmap", label: "Roadmap" },
+  { href: "/careers/consulting/programs", label: "Programs" },
+  { href: "/careers/consulting/clubs", label: "Clubs & Activities" },
+  { href: "/careers/consulting/interviews", label: "Case Interviews" },
+  { href: "/careers/consulting/resources", label: "Resources" },
+];
+
 const swePaths = ["/careers/software-engineering"];
+const consultingPaths = ["/careers/consulting"];
 
 export default function CareerNavbar() {
   const pathname = usePathname();
@@ -31,7 +41,8 @@ export default function CareerNavbar() {
   const isCareersHub = pathname === "/careers";
   const isPM = pmPaths.some((p) => pathname === p || pathname.startsWith(p + "/"));
   const isSWE = swePaths.some((p) => pathname === p || pathname.startsWith(p + "/"));
-  const navLinks = isPM ? pmLinks : isSWE ? sweLinks : [];
+  const isConsulting = consultingPaths.some((p) => pathname === p || pathname.startsWith(p + "/"));
+  const navLinks = isPM ? pmLinks : isSWE ? sweLinks : isConsulting ? consultingLinks : [];
 
   return (
     <header className="sticky top-0 z-50 bg-[#FAFAF7]/95 backdrop-blur-sm border-b border-[#E5E5E0]">
@@ -61,6 +72,11 @@ export default function CareerNavbar() {
                 Software Engineering
               </span>
             )}
+            {isConsulting && (
+              <span className="hidden sm:inline-flex items-center gap-1 text-xs font-semibold text-[#1B4332] bg-[#F0FDF4] px-2 py-0.5 rounded-full border border-[#1B4332]/20">
+                Consulting
+              </span>
+            )}
           </div>
 
           {navLinks.length > 0 && (
@@ -72,7 +88,7 @@ export default function CareerNavbar() {
                   className={clsx(
                     "px-3 py-1.5 rounded text-sm font-medium transition-colors duration-150 cursor-pointer",
                     pathname === link.href
-                      ? isSWE ? "bg-[#EEF2FF] text-[#1A1A2E]" : "bg-[#FDF8EC] text-[#C4841A]"
+                      ? isSWE ? "bg-[#EEF2FF] text-[#1A1A2E]" : isConsulting ? "bg-[#F0FDF4] text-[#1B4332]" : "bg-[#FDF8EC] text-[#C4841A]"
                       : "text-[#6B6B6B] hover:text-[#0D0D0D] hover:bg-[#0D0D0D]/5"
                   )}
                 >
@@ -84,7 +100,7 @@ export default function CareerNavbar() {
 
           <div className="flex items-center gap-3">
             <Link
-              href="/start"
+              href="/high-school/contact"
               className="hidden sm:inline-flex items-center px-4 py-2 bg-[#0D0D0D] text-[#FAFAF7] text-sm font-semibold rounded-md hover:bg-[#F4A825] hover:text-[#0D0D0D] transition-colors duration-150 cursor-pointer"
             >
               Get help

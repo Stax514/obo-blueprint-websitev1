@@ -24,7 +24,7 @@ const collegeLinks = [
 const careerLinks = [
   { href: "/careers/product-management", label: "Product Management" },
   { href: "/careers/software-engineering", label: "Software Engineering" },
-  { href: null, label: "Consulting" },
+  { href: "/careers/consulting", label: "Consulting" },
   { href: null, label: "Finance & IB" },
   { href: null, label: "UX Design" },
   { href: null, label: "Data Science" },
