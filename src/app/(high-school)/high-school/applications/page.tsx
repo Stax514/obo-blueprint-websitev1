@@ -324,7 +324,7 @@ export default function ApplicationsPage() {
       </div>
 
       {/* Common mistakes */}
-      <div className="bg-[#0D0D0D] rounded-2xl p-8 md:p-12">
+      <div className="bg-[#0D0D0D] rounded-2xl p-8 md:p-12 mb-20">
         <div className="flex gap-3 mb-6">
           <AlertCircle size={20} className="text-[#C45B3D] flex-shrink-0 mt-0.5" />
           <p className="text-[#C45B3D] text-xs font-semibold uppercase tracking-widest">Avoid these</p>
@@ -343,6 +343,46 @@ export default function ApplicationsPage() {
             </li>
           ))}
         </ul>
+      </div>
+
+      {/* Adiyah's example */}
+      <div>
+        <p className="text-[#1A1A2E] text-xs font-semibold uppercase tracking-widest mb-4">Real example</p>
+        <h2
+          className="text-3xl sm:text-4xl font-bold text-[#0D0D0D] mb-4"
+          style={{ fontFamily: "'Libre Bodoni', serif" }}
+        >
+          Adiyah&apos;s Yale supplemental.
+        </h2>
+        <p className="text-[#6B6B6B] mb-10 max-w-2xl">
+          Adiyah received a likely letter from Yale. This is the supplemental essay she wrote — 199 words on economic justice. Notice how specific it is, how it connects personal research to a global argument, and how it ends on her own conviction.
+        </p>
+        <div className="bg-[#0D0D0D] rounded-2xl p-8 md:p-10">
+          <div className="mb-6">
+            <p className="text-[#9CA3AF] text-xs uppercase tracking-widest mb-2">Prompt</p>
+            <p className="text-[#FAFAF7] text-sm leading-relaxed italic">&ldquo;Tell us about a topic or idea that excites you and is related to one or more academic areas you selected above. Why are you drawn to it?&rdquo;</p>
+          </div>
+          <div className="bg-[#111111] rounded-xl p-6 space-y-4">
+            <p className="text-[#FAFAF7] text-sm leading-relaxed">I am excited about economic justice.</p>
+            <p className="text-[#FAFAF7] text-sm leading-relaxed">When a country is not able to acquire financial stability, the people encounter the ravages of inequality. Since economic security is key to advancing society, not everyone has the same access to financial freedom.</p>
+            <p className="text-[#F4A825] text-sm font-semibold leading-relaxed">Poverty is not merely a natural phenomenon, it is designed.</p>
+            <p className="text-[#FAFAF7] text-sm leading-relaxed">In eleventh grade, I conducted research on Haiti and realized that after overthrowing the French government, Haiti was forced to pay French slaveholders and their descendants $30 billion dollars. It took Haiti 122 years to pay it off. The country remains one of the poorest places on Earth.</p>
+            <p className="text-[#FAFAF7] text-sm leading-relaxed">I now see how economics, colonization, and oppression are intertwined locally and globally. Independence is a mirage when the choice is physical freedom or financial bondage.</p>
+            <p className="text-[#F4A825] text-sm font-semibold leading-relaxed">Another world is possible.</p>
+            <p className="text-[#FAFAF7] text-sm leading-relaxed">Any system constructed from the hands of human beings can be transformed. The solution is in the ties that bind us. The web of mutuality. While international cooperation cannot be attained by a stand-alone nation-state, we can choose global greed or giving.</p>
+            <p className="text-[#F4A825] text-sm font-semibold leading-relaxed">I choose giving.</p>
+            <p className="text-[#FAFAF7] text-sm leading-relaxed">Patterns of exploitation obstruct human progress. I urge us to examine the fragility of inequality and develop systems of economic justice where we value each other.</p>
+            <p className="text-[#9CA3AF] text-xs mt-4">(199 words)</p>
+          </div>
+          <div className="mt-6 bg-[#1A1A2E] rounded-xl p-5 space-y-2">
+            <p className="text-[#9CA3AF] text-xs uppercase tracking-widest mb-3">What makes this work</p>
+            <div className="flex gap-2 text-sm text-[#9CA3AF]"><span className="text-[#F4A825] flex-shrink-0">→</span><span>Opens with a clear, confident statement of interest — no hedging</span></div>
+            <div className="flex gap-2 text-sm text-[#9CA3AF]"><span className="text-[#F4A825] flex-shrink-0">→</span><span>Grounds the topic in original research she actually did in 11th grade</span></div>
+            <div className="flex gap-2 text-sm text-[#9CA3AF]"><span className="text-[#F4A825] flex-shrink-0">→</span><span>Moves from specific (Haiti) to global (colonization, oppression) — shows intellectual range</span></div>
+            <div className="flex gap-2 text-sm text-[#9CA3AF]"><span className="text-[#F4A825] flex-shrink-0">→</span><span>Ends on her own conviction — not a vague hope, a stated choice</span></div>
+            <div className="flex gap-2 text-sm text-[#9CA3AF]"><span className="text-[#F4A825] flex-shrink-0">→</span><span>199 words — uses every word of the 200-word limit intentionally</span></div>
+          </div>
+        </div>
       </div>
     </HsSectionLayout>
   );

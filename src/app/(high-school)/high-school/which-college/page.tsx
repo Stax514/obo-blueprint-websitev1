@@ -203,6 +203,20 @@ export default function WhichCollegePage() {
         </div>
       </div>
 
+      {/* Mellon Mays / Research tip */}
+      <div className="bg-[#F0F0F8] border border-[#1A1A2E]/20 rounded-2xl p-8 max-w-3xl mb-6">
+        <p className="text-[#1A1A2E] text-xs font-semibold uppercase tracking-widest mb-4">From Adiyah — Yale</p>
+        <h3
+          className="text-xl font-bold text-[#0D0D0D] mb-3"
+          style={{ fontFamily: "'Libre Bodoni', serif" }}
+        >
+          If you&apos;re interested in the humanities or a PhD, look for Mellon Mays schools.
+        </h3>
+        <p className="text-[#6B6B6B] leading-relaxed text-sm">
+          If you&apos;re going into the humanities, look for schools with a Mellon Mays Undergraduate Fellowship partnership. It&apos;s a competitive program, but it gives you real undergraduate research experience and funding — and it&apos;s protected because the money comes through the Mellon Foundation, not the university. Even if your school doesn&apos;t have Mellon Mays, if you&apos;re thinking about a PhD, prioritize schools that give undergrads genuine research access — through fellowships, partnerships with other universities, or direct relationships with professors.
+        </p>
+      </div>
+
       {/* Visit tip */}
       <div className="bg-[#0D0D0D] rounded-2xl p-8 md:p-12 max-w-3xl">
         <p className="text-[#C45B3D] text-xs font-semibold uppercase tracking-widest mb-4">Pro tip</p>
